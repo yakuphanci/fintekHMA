@@ -1,0 +1,35 @@
+[
+    {
+        "urunID": 1,
+        "urunAdi": "Patates"
+    },
+    {
+        "urunID": 2,
+        "urunAdi": "Soğan"
+    },
+    {
+        "urunID": 3,
+        "urunAdi": "Domates"
+    },
+    {
+        "urunID": 4,
+        "urunAdi": "Buğday"
+    },
+    {
+        "urunID": 5,
+        "urunAdi": "Arpa"
+    },
+    {
+        "urunID": 6,
+        "urunAdi": "Yulaf"
+    },
+    {
+        "urunID": 7,
+        "urunAdi": "Pamuk"
+    },
+    {
+        "urunID": 8,
+        "urunAdi": "Biber"
+    }
+
+]

@@ -2,8 +2,8 @@
 namespace taslakOdev
 {
 
-    
-    internal class Kullanici
+
+    public class Kullanici
     {
         public string Adi;
         public string Soyadi;

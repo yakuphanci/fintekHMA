@@ -1,0 +1,123 @@
+[
+    {
+        "pazardaMi": true,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 1,
+            "urunAdi": "Patates"
+        },
+        "miktar": 17,
+        "fiyat": 0.8
+    },
+    {
+        "pazardaMi": false,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 2,
+            "urunAdi": "Soğan"
+        },
+        "miktar": 34,
+        "fiyat": 1.6
+    },
+    {
+        "pazardaMi": true,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 3,
+            "urunAdi": "Domates"
+        },
+        "miktar": 51,
+        "fiyat": 2.4000000000000004
+    },
+    {
+        "pazardaMi": false,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 4,
+            "urunAdi": "Buğday"
+        },
+        "miktar": 68,
+        "fiyat": 3.2
+    },
+    {
+        "pazardaMi": true,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 5,
+            "urunAdi": "Arpa"
+        },
+        "miktar": 85,
+        "fiyat": 4
+    },
+    {
+        "pazardaMi": false,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 6,
+            "urunAdi": "Yulaf"
+        },
+        "miktar": 102,
+        "fiyat": 4.800000000000001
+    },
+    {
+        "pazardaMi": true,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 7,
+            "urunAdi": "Pamuk"
+        },
+        "miktar": 119,
+        "fiyat": 5.6000000000000005
+    },
+    {
+        "pazardaMi": true,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 8,
+            "urunAdi": "Biber"
+        },
+        "miktar": 136,
+        "fiyat": 6.4
+    },
+    {
+        "pazardaMi": false,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 1,
+            "urunAdi": "Patates"
+        },
+        "miktar": 153,
+        "fiyat": 7.2
+    },
+    {
+        "pazardaMi": false,
+        "saticiID": "yakuphanci",
+        "urun": {
+            "urunID": 2,
+            "urunAdi": "Soğan"
+        },
+        "miktar": 170,
+        "fiyat": 8
+    },
+    {
+        "pazardaMi": true,
+        "saticiID": "muro5759",
+        "urun": {
+            "urunID": 1,
+            "urunAdi": "Patates"
+        },
+        "miktar": 910,
+        "fiyat": 0.2
+    },
+    {
+        "pazardaMi": true,
+        "saticiID": "muro5759",
+        "urun": {
+            "urunID": 2,
+            "urunAdi": "Soğan"
+        },
+        "miktar": 13,
+        "fiyat": 1.2
+    }
+    
+]

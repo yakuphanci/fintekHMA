@@ -30,11 +30,11 @@ namespace taslakOdev
         private void InitializeComponent()
         {
             this.panel_giris = new System.Windows.Forms.Panel();
+            this.textBox_parola = new System.Windows.Forms.TextBox();
             this.button_giris = new System.Windows.Forms.Button();
             this.label_parola = new System.Windows.Forms.Label();
             this.label_kullaniciAdi = new System.Windows.Forms.Label();
             this.textBox_kullaniciAdi = new System.Windows.Forms.TextBox();
-            this.textBox_parola = new System.Windows.Forms.TextBox();
             this.panel_giris.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,9 +51,19 @@ namespace taslakOdev
             this.panel_giris.Size = new System.Drawing.Size(359, 215);
             this.panel_giris.TabIndex = 22;
             // 
+            // textBox_parola
+            // 
+            this.textBox_parola.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox_parola.Location = new System.Drawing.Point(29, 106);
+            this.textBox_parola.Name = "textBox_parola";
+            this.textBox_parola.Size = new System.Drawing.Size(304, 24);
+            this.textBox_parola.TabIndex = 2;
+            this.textBox_parola.Text = "123";
+            this.textBox_parola.UseSystemPasswordChar = true;
+            this.textBox_parola.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity);
+            // 
             // button_giris
             // 
-            this.button_giris.Enabled = false;
             this.button_giris.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.button_giris.Location = new System.Drawing.Point(29, 140);
             this.button_giris.Name = "button_giris";
@@ -90,17 +100,8 @@ namespace taslakOdev
             this.textBox_kullaniciAdi.Name = "textBox_kullaniciAdi";
             this.textBox_kullaniciAdi.Size = new System.Drawing.Size(304, 24);
             this.textBox_kullaniciAdi.TabIndex = 1;
+            this.textBox_kullaniciAdi.Text = "yakuphanci";
             this.textBox_kullaniciAdi.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity);
-            // 
-            // textBox_parola
-            // 
-            this.textBox_parola.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox_parola.Location = new System.Drawing.Point(29, 106);
-            this.textBox_parola.Name = "textBox_parola";
-            this.textBox_parola.Size = new System.Drawing.Size(304, 24);
-            this.textBox_parola.TabIndex = 2;
-            this.textBox_parola.UseSystemPasswordChar = true;
-            this.textBox_parola.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity);
             // 
             // Form_Giris
             // 
