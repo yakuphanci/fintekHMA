@@ -42,8 +42,18 @@ namespace taslakOdev
         {
             //Parametre olarak gönderilen JSON verisini belirtilen T tipine çevirir. 
             //Eğer JSON verisi NULLsa belitilen T tipinde obje oluşturulup geri döndürülür.
-            var data = (T)(JsonConvert.DeserializeObject(JSON, typeof(T)) ?? new T());
-            return data;
+            try
+            {
+                //Eğer hata yoksa ama null ise dosya, istenen türde yeni boş bir data döndür.
+                var data = (T)(JsonConvert.DeserializeObject(JSON, typeof(T)) ?? new T());
+                return data;
+            }
+            catch (Exception)
+            {
+                //Eğer mevcut depolanan veride hata varsa istenen türde yeni boş veri döndür.
+                return new T();
+            }
+            
         }
 
 
