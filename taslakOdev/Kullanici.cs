@@ -2,8 +2,8 @@
 namespace taslakOdev
 {
 
-    
-    internal class Kullanici
+
+    public class Kullanici
     {
         public string Adi;
         public string Soyadi;
@@ -16,7 +16,6 @@ namespace taslakOdev
         public string EPosta;
 
         public Yetki yetki;
-
         public Kullanici()
         {
             this.yetki = Yetki.Kullanici;

@@ -30,6 +30,21 @@ namespace taslakOdev
             MessageBox.Show("İşlem tamamlanamadı.", "Başarısız!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        public static void Hata()
+        {
+            MessageBox.Show("Hay aksi! Bir hata meydana geldi.", "Hay aksi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void Hata(string message)
+        {
+            MessageBox.Show("Hay aksi! Bir hata meydana geldi.\nHata mesajı: " + message, "Hay aksi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void SadeMesaj(string message, string tittle)
+        {
+            MessageBox.Show(message, tittle);
+        }
+
 
 
     }
