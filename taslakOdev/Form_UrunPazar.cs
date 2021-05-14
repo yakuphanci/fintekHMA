@@ -12,6 +12,7 @@ namespace taslakOdev
 {
     public partial class Form_UrunPazar : Form
     {
+
         int g_kategoriPazarID;
         Kullanici g_aktifKullanici;
         public Form_UrunPazar(Kullanici aktifKullanici, int kategoriID)

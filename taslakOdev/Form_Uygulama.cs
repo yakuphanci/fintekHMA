@@ -21,11 +21,14 @@ namespace taslakOdev
             InitializeComponent();
             this.g_frm_main = _frm_main;
             this.g_aktifKullanici = (Kullanici)_aktifKullanici;
-
+            
             hesapToolStripMenuItem.Text = this.g_aktifKullanici.KullaniciAdi;
-            KategoriListele();
+            TumunuYenile();
         }
         #endregion
+
+     
+
 
         #region Listedeki Kategoriye tiklama olayı
         private void urunKategori_Click(object sender, EventArgs e)
@@ -148,18 +151,18 @@ namespace taslakOdev
 
             return urunContainer;
         }
-       
+        #endregion
+
+
+        #region Satılan Urunleri kategorile ve listele.
         /// <summary>
-        /// Onaylanmis satilan urunlerdeki urunleri gruplandirir ve kategori olarak listeleme 
-        /// islemini yapar.
+        /// Onaylanmis satilan urunlerdeki urunleri gruplandirir ve kategori olarak listeleme islemini yapar.
         /// </summary>
         void KategoriListele()
         {
             //güncel verileri yüklemeden önce paneli temizle.
             flowLayoutPanel_kategoriler.Controls.Clear();
-
-            string json_kayitliSatilanUrunler = JsonController.GetJsonFromFile(@"SatilanUrunler.json");
-            var kayitliSatilanUrunler = JsonController.GetDataFromJSON<List<SatilanUrun>>(json_kayitliSatilanUrunler);
+            var kayitliSatilanUrunler = GetSatilanUrunler();
 
             //Satışa sunulan tüm ürünlerden gösterime onaylananlar ayıklandı.
             var onayliSatilanUrunler = from su in kayitliSatilanUrunler
@@ -169,16 +172,16 @@ namespace taslakOdev
 
             //satışa açılmış ürünler kategorilerine göre gruplandı.
             var kategorilenmisSatilanUrunler = from su in onayliSatilanUrunler
-                                       group su by su.urun.urunID;
-            
+                                               group su by su.urun.urunID;
+
             foreach (var kategoriGroup in kategorilenmisSatilanUrunler)
             {
                 var kategori = new KategoriPazar();
-                 
+
                 //Mevcut kategorideki en düşük fiyatlı ürünü hesapladık.
                 var fiyataGoreSiralanmisUrunler = (from u in kategoriGroup
-                              orderby u.fiyat ascending
-                              select u).ToList();
+                                                   orderby u.fiyat ascending
+                                                   select u).ToList();
 
                 foreach (var satilanUrun in fiyataGoreSiralanmisUrunler)
                 {
@@ -195,33 +198,67 @@ namespace taslakOdev
                 flowLayoutPanel_kategoriler.Controls.Add(PazarKategoriOlustur(kategori));
             }
 
-
-
         }
         #endregion
 
-       
+
+        List<SatilanUrun> GetSatilanUrunler()
+        {
+            string json_kayitliSatilanUrunler = JsonController.GetJsonFromFile(@"SatilanUrunler.json");
+            var kayitliSatilanUrunler = JsonController.GetDataFromJSON<List<SatilanUrun>>(json_kayitliSatilanUrunler);
+
+            return kayitliSatilanUrunler;
+        }
+
+        List<Kullanici> GetKullanicilar()
+        {
+            var json_kullanicilar = JsonController.GetJsonFromFile(@"kullanicilar.json");
+            var kullanicilar = JsonController.GetDataFromJSON<List<Kullanici>>(json_kullanicilar);
+
+            return kullanicilar;
+        }
+
+
+
         #region Yenileme Islemi
+        private void KullaniciBilgileriniYenile()
+        {
+            var kullanicilar = GetKullanicilar();
+            var kullanici = (from k in kullanicilar
+                             where k.KullaniciAdi == this.g_aktifKullanici.KullaniciAdi
+                             select k).ToList()[0];
+            this.g_aktifKullanici = kullanici;
+        }
+        void BakiyeYenile()
+        {
+            this.label_bakiye.Text = this.g_aktifKullanici.Bakiye + " ₺";
+        }
+
+        void TumunuYenile()
+        {
+            KullaniciBilgileriniYenile();
+            KategoriListele();
+            BakiyeYenile();
+        }
         private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            KategoriListele();
+
+            TumunuYenile();
         } 
         #endregion
 
 
-        #region Kullanici(Satici)nin kendi urunlerini yonetecegi formu acma
+        #region Kullanici(Satici)nin kendi urunlerini yonetecegi formu acma islemi
         /// <summary>
         /// Kullanicinin (Satici) kendi urunlerini yonetebilecegi FormEkranini acar
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_PazaraUrunEkle_Click(object sender, EventArgs e)
+        private void button_kullaniciPazari_Click(object sender, EventArgs e)
         {
-            Form_Profil frm_profil = new Form_Profil(this.g_aktifKullanici.KullaniciAdi);
+            Form_Profil frm_profil = new Form_Profil(this.g_aktifKullanici);
             frm_profil.ShowDialog();
+            TumunuYenile();
         }
         #endregion
-
 
 
         #region Menu Strip Koyu tema ayarı
@@ -238,6 +275,20 @@ namespace taslakOdev
         }
         #endregion
 
+
+        #region Bakiye Islemleri Butonu Tıklama Olayı.
+        ///<summary>
+        ///Bakiye İşlem penceresini açar.
+        ///</summary>
+        private void button_bakiyeIslemleri_Click(object sender, EventArgs e)
+        {
+            Form_BakiyeIslem frm_bakiyeIslem = new Form_BakiyeIslem(this.g_aktifKullanici);
+            frm_bakiyeIslem.ShowDialog();
+            TumunuYenile();
+        }
+        #endregion
+
+       
         #region Cikis islemleri 
         private void Form_Uygulama_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -253,7 +304,7 @@ namespace taslakOdev
         }
         #endregion
 
-        
+    
     }
 
 

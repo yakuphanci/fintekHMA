@@ -15,6 +15,7 @@ namespace taslakOdev
         public string TelefonNum;
         public string EPosta;
 
+        public double Bakiye;
         public Yetki yetki;
         public Kullanici()
         {

@@ -12,11 +12,12 @@ namespace taslakOdev
 {
     public partial class Form_Profil : Form
     {
-        string g_kullaniciAdi;
-        public Form_Profil(string kullaniciAdi)
+        Kullanici g_aktifKullanici;
+        public Form_Profil(Kullanici aktifKullanici)
         {
             InitializeComponent();
-            this.g_kullaniciAdi = kullaniciAdi;
+            this.g_aktifKullanici = aktifKullanici;
+            TumunuYenile();
         }
 
 
@@ -137,7 +138,7 @@ namespace taslakOdev
             pazarTarihValue.TabIndex = 9;
             pazarTarihValue.Text = pazarUrun.tarih.ToString("dd/MM/yyyy");
 
-         
+
             //Ekleme işlemleri
             urunContainer.Controls.Add(urunResmi);
             urunContainer.Controls.Add(urunAdi);
@@ -169,6 +170,13 @@ namespace taslakOdev
             return kayitliSatilanUrunler;
         }
 
+        List<Kullanici> GetKullanicilar()
+        {
+            var json_kullanicilar = JsonController.GetJsonFromFile(@"kullanicilar.json");
+            var kullanicilar = JsonController.GetDataFromJSON<List<Kullanici>>(json_kullanicilar);
+            return kullanicilar;
+        }
+
         #region Listeleme Fonksiyonları
         void yayindakiUrunlerListele()
         {
@@ -179,10 +187,10 @@ namespace taslakOdev
             //Pazara çıkması onaylanmış ve yayına alınmış ürünler filtreler/sıralar.
             var yayindakiUrunler = from su in kayitliSatilanUrunler
                                    where su.pazardaMi == true
-                                   && su.saticiID == this.g_kullaniciAdi
+                                   && su.saticiID == this.g_aktifKullanici.KullaniciAdi
                                    orderby su.tarih ascending
                                    select su;
-          
+
             foreach (var satilanUrun in yayindakiUrunler)
             {
                 flowLayoutPanel_yayindakiUrunler.Controls.Add(PazarUrunOlustur(satilanUrun));
@@ -192,17 +200,17 @@ namespace taslakOdev
 
         void beklemedekiUrunlerListele()
         {
-            
+
             flowLayoutPanel_beklemedekiUrunler.Controls.Clear();
 
             var kayitliSatilanUrunler = GetSatilanUrunler();
 
             //Henüz pazara çıkmayı bekleyen, onaylanmamış ürünleri filtreler/sıralar.
             var beklemedekiUrunler = from su in kayitliSatilanUrunler
-                                       where su.pazardaMi == false
-                                       && su.saticiID == this.g_kullaniciAdi
-                                       orderby su.tarih ascending
-                                       select su;
+                                     where su.pazardaMi == false
+                                     && su.saticiID == this.g_aktifKullanici.KullaniciAdi
+                                     orderby su.tarih ascending
+                                     select su;
 
 
             foreach (var satilanUrun in beklemedekiUrunler)
@@ -213,16 +221,14 @@ namespace taslakOdev
         #endregion
 
 
-        #region Yeni Urun Ekleme Penceresi Acma
+        #region Yeni Urun Ekle Butonu Tıklama Olayı
         /// <summary>
         /// Urun Ekleme Butonu Tıklama Olayı.
         /// Kullanıcının Eklenebilir ürün kategorilerinden ürün seçip yükleyebileceği pencere açılır.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void button_urunEkle_Click(object sender, EventArgs e)
         {
-            Form_UrunEkle frm_UrunEkle = new Form_UrunEkle(this.g_kullaniciAdi);
+            Form_UrunEkle frm_UrunEkle = new Form_UrunEkle(this.g_aktifKullanici.KullaniciAdi);
             frm_UrunEkle.ShowDialog();
             button_yenile.PerformClick();
         }
@@ -230,23 +236,31 @@ namespace taslakOdev
 
 
         #region Yenileme İslemleri
-        private void button_yenile_Click(object sender, EventArgs e)
+        private void KullaniciBilgileriniYenile()
         {
-            beklemedekiUrunlerListele();
-            yayindakiUrunlerListele();
+            var kullanicilar = GetKullanicilar();
+            var kullanici = (from k in kullanicilar
+                             where k.KullaniciAdi == this.g_aktifKullanici.KullaniciAdi
+                             select k).ToList()[0];
+            this.g_aktifKullanici = kullanici;
         }
 
-        private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
+        void BakiyeYenile()
         {
-            beklemedekiUrunlerListele();
-            yayindakiUrunlerListele();
-
+            this.label_bakiye.Text = this.g_aktifKullanici.Bakiye + " ₺";
         }
-        private void Form_UrunSat_Load(object sender, EventArgs e)
+        
+        void TumunuYenile()
         {
+            KullaniciBilgileriniYenile();
             beklemedekiUrunlerListele();
             yayindakiUrunlerListele();
+            BakiyeYenile();
+        }
 
+        private void yenile_Click(object sender, EventArgs e)
+        {
+            TumunuYenile();
         }
         #endregion
 
@@ -267,8 +281,19 @@ namespace taslakOdev
             button_bekleyenUrunler.Enabled = false;
             button_satistakiUrunler.Enabled = true;
         }
+
         #endregion
 
-       
+
+        #region Bakiye Islemleri Butonu Tıklama Olayı
+        private void button_bakiyeIslemleri_Click(object sender, EventArgs e)
+        {
+            Form_BakiyeIslem frm_bakiyeIslem = new Form_BakiyeIslem(this.g_aktifKullanici);
+            frm_bakiyeIslem.ShowDialog();
+            //işlem yapıldıktan sonra bakiye bilgisini yeniden çek.
+            TumunuYenile();
+        }
+        #endregion
+   
     }
 }

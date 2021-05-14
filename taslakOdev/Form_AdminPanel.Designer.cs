@@ -31,6 +31,30 @@ namespace taslakOdev
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_bekleyenUrunler = new System.Windows.Forms.TabPage();
+            this.tabPage_bekleyenBakiyeler = new System.Windows.Forms.TabPage();
+            this.groupBox_onayBekleyenBakiyeler = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel_bekleyenIslemler = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_bakiyeIslem = new System.Windows.Forms.Panel();
+            this.label_tarihAyrac = new System.Windows.Forms.Label();
+            this.label_gerceklesmeTarihiTittle = new System.Windows.Forms.Label();
+            this.label_gerceklesmeTarihiValue = new System.Windows.Forms.Label();
+            this.label_islemTarihiTittle = new System.Windows.Forms.Label();
+            this.label_islemMiktari = new System.Windows.Forms.Label();
+            this.label_islemAciklama = new System.Windows.Forms.Label();
+            this.label_islemTarihiValue = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hesapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guvenliCikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox_onayBekleyenUrunler = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_bekleyenUrunler = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_urun = new System.Windows.Forms.Panel();
             this.label_pazarIDValue = new System.Windows.Forms.Label();
@@ -45,17 +69,18 @@ namespace taslakOdev
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabPage_bekleyenBakiyeler = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hesapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guvenliCikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage_bekleyenUrunler.SuspendLayout();
+            this.tabPage_bekleyenBakiyeler.SuspendLayout();
+            this.groupBox_onayBekleyenBakiyeler.SuspendLayout();
+            this.flowLayoutPanel_bekleyenIslemler.SuspendLayout();
+            this.panel_bakiyeIslem.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.groupBox_onayBekleyenUrunler.SuspendLayout();
             this.flowLayoutPanel_bekleyenUrunler.SuspendLayout();
             this.panel_urun.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -74,7 +99,7 @@ namespace taslakOdev
             // tabPage_bekleyenUrunler
             // 
             this.tabPage_bekleyenUrunler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.tabPage_bekleyenUrunler.Controls.Add(this.flowLayoutPanel_bekleyenUrunler);
+            this.tabPage_bekleyenUrunler.Controls.Add(this.groupBox_onayBekleyenUrunler);
             this.tabPage_bekleyenUrunler.Location = new System.Drawing.Point(4, 26);
             this.tabPage_bekleyenUrunler.Name = "tabPage_bekleyenUrunler";
             this.tabPage_bekleyenUrunler.Padding = new System.Windows.Forms.Padding(3);
@@ -82,14 +107,278 @@ namespace taslakOdev
             this.tabPage_bekleyenUrunler.TabIndex = 0;
             this.tabPage_bekleyenUrunler.Text = "Onay Bekleyen Ürünler";
             // 
+            // tabPage_bekleyenBakiyeler
+            // 
+            this.tabPage_bekleyenBakiyeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.tabPage_bekleyenBakiyeler.Controls.Add(this.groupBox_onayBekleyenBakiyeler);
+            this.tabPage_bekleyenBakiyeler.Location = new System.Drawing.Point(4, 26);
+            this.tabPage_bekleyenBakiyeler.Name = "tabPage_bekleyenBakiyeler";
+            this.tabPage_bekleyenBakiyeler.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_bekleyenBakiyeler.Size = new System.Drawing.Size(636, 464);
+            this.tabPage_bekleyenBakiyeler.TabIndex = 1;
+            this.tabPage_bekleyenBakiyeler.Text = "Onay Bekleyen Bakiyeler";
+            // 
+            // groupBox_onayBekleyenBakiyeler
+            // 
+            this.groupBox_onayBekleyenBakiyeler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.groupBox_onayBekleyenBakiyeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.groupBox_onayBekleyenBakiyeler.Controls.Add(this.flowLayoutPanel_bekleyenIslemler);
+            this.groupBox_onayBekleyenBakiyeler.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox_onayBekleyenBakiyeler.Location = new System.Drawing.Point(131, 6);
+            this.groupBox_onayBekleyenBakiyeler.Name = "groupBox_onayBekleyenBakiyeler";
+            this.groupBox_onayBekleyenBakiyeler.Size = new System.Drawing.Size(375, 455);
+            this.groupBox_onayBekleyenBakiyeler.TabIndex = 2;
+            this.groupBox_onayBekleyenBakiyeler.TabStop = false;
+            // 
+            // flowLayoutPanel_bekleyenIslemler
+            // 
+            this.flowLayoutPanel_bekleyenIslemler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel_bekleyenIslemler.AutoScroll = true;
+            this.flowLayoutPanel_bekleyenIslemler.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel_bekleyenIslemler.Controls.Add(this.panel_bakiyeIslem);
+            this.flowLayoutPanel_bekleyenIslemler.Controls.Add(this.panel4);
+            this.flowLayoutPanel_bekleyenIslemler.Location = new System.Drawing.Point(6, 12);
+            this.flowLayoutPanel_bekleyenIslemler.Name = "flowLayoutPanel_bekleyenIslemler";
+            this.flowLayoutPanel_bekleyenIslemler.Size = new System.Drawing.Size(382, 437);
+            this.flowLayoutPanel_bekleyenIslemler.TabIndex = 0;
+            // 
+            // panel_bakiyeIslem
+            // 
+            this.panel_bakiyeIslem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel_bakiyeIslem.Controls.Add(this.label_tarihAyrac);
+            this.panel_bakiyeIslem.Controls.Add(this.label_gerceklesmeTarihiTittle);
+            this.panel_bakiyeIslem.Controls.Add(this.label_gerceklesmeTarihiValue);
+            this.panel_bakiyeIslem.Controls.Add(this.label_islemTarihiTittle);
+            this.panel_bakiyeIslem.Controls.Add(this.label_islemMiktari);
+            this.panel_bakiyeIslem.Controls.Add(this.label_islemAciklama);
+            this.panel_bakiyeIslem.Controls.Add(this.label_islemTarihiValue);
+            this.panel_bakiyeIslem.Location = new System.Drawing.Point(3, 3);
+            this.panel_bakiyeIslem.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.panel_bakiyeIslem.Name = "panel_bakiyeIslem";
+            this.panel_bakiyeIslem.Size = new System.Drawing.Size(355, 100);
+            this.panel_bakiyeIslem.TabIndex = 0;
+            // 
+            // label_tarihAyrac
+            // 
+            this.label_tarihAyrac.AutoSize = true;
+            this.label_tarihAyrac.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label_tarihAyrac.Location = new System.Drawing.Point(149, 11);
+            this.label_tarihAyrac.Name = "label_tarihAyrac";
+            this.label_tarihAyrac.Size = new System.Drawing.Size(10, 13);
+            this.label_tarihAyrac.TabIndex = 7;
+            this.label_tarihAyrac.Text = "-";
+            // 
+            // label_gerceklesmeTarihiTittle
+            // 
+            this.label_gerceklesmeTarihiTittle.AutoSize = true;
+            this.label_gerceklesmeTarihiTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label_gerceklesmeTarihiTittle.Location = new System.Drawing.Point(165, 11);
+            this.label_gerceklesmeTarihiTittle.Name = "label_gerceklesmeTarihiTittle";
+            this.label_gerceklesmeTarihiTittle.Size = new System.Drawing.Size(97, 13);
+            this.label_gerceklesmeTarihiTittle.TabIndex = 6;
+            this.label_gerceklesmeTarihiTittle.Text = "Gerçekleşme Tarihi:";
+            // 
+            // label_gerceklesmeTarihiValue
+            // 
+            this.label_gerceklesmeTarihiValue.AutoSize = true;
+            this.label_gerceklesmeTarihiValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_gerceklesmeTarihiValue.Location = new System.Drawing.Point(267, 11);
+            this.label_gerceklesmeTarihiValue.Name = "label_gerceklesmeTarihiValue";
+            this.label_gerceklesmeTarihiValue.Size = new System.Drawing.Size(69, 13);
+            this.label_gerceklesmeTarihiValue.TabIndex = 5;
+            this.label_gerceklesmeTarihiValue.Text = "11 May 2021";
+            // 
+            // label_islemTarihiTittle
+            // 
+            this.label_islemTarihiTittle.AutoSize = true;
+            this.label_islemTarihiTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label_islemTarihiTittle.Location = new System.Drawing.Point(12, 11);
+            this.label_islemTarihiTittle.Name = "label_islemTarihiTittle";
+            this.label_islemTarihiTittle.Size = new System.Drawing.Size(61, 13);
+            this.label_islemTarihiTittle.TabIndex = 3;
+            this.label_islemTarihiTittle.Text = "İşlem Tarihi:";
+            // 
+            // label_islemMiktari
+            // 
+            this.label_islemMiktari.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_islemMiktari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label_islemMiktari.Location = new System.Drawing.Point(181, 74);
+            this.label_islemMiktari.Name = "label_islemMiktari";
+            this.label_islemMiktari.Size = new System.Drawing.Size(170, 22);
+            this.label_islemMiktari.TabIndex = 2;
+            this.label_islemMiktari.Text = "100,00 ₺";
+            this.label_islemMiktari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label_islemAciklama
+            // 
+            this.label_islemAciklama.AutoSize = true;
+            this.label_islemAciklama.Location = new System.Drawing.Point(12, 42);
+            this.label_islemAciklama.Name = "label_islemAciklama";
+            this.label_islemAciklama.Size = new System.Drawing.Size(139, 17);
+            this.label_islemAciklama.TabIndex = 1;
+            this.label_islemAciklama.Text = "Bakiye Ekleme İşlemi";
+            // 
+            // label_islemTarihiValue
+            // 
+            this.label_islemTarihiValue.AutoSize = true;
+            this.label_islemTarihiValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_islemTarihiValue.Location = new System.Drawing.Point(74, 11);
+            this.label_islemTarihiValue.Name = "label_islemTarihiValue";
+            this.label_islemTarihiValue.Size = new System.Drawing.Size(69, 13);
+            this.label_islemTarihiValue.TabIndex = 0;
+            this.label_islemTarihiValue.Text = "10 May 2021";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label21);
+            this.panel4.Location = new System.Drawing.Point(3, 111);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(355, 100);
+            this.panel4.TabIndex = 6;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label15.Location = new System.Drawing.Point(149, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(10, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "-";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label16.Location = new System.Drawing.Point(165, 11);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 13);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Gerçekleşme Tarihi:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label17.Location = new System.Drawing.Point(267, 11);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "11 May 2021";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.label18.Location = new System.Drawing.Point(12, 11);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(61, 13);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "İşlem Tarihi:";
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label19.Location = new System.Drawing.Point(181, 74);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(170, 22);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "-80,00 ₺";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 42);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(160, 17);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Bakiyeden Çekme İşlemi";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label21.Location = new System.Drawing.Point(74, 11);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "10 May 2021";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hesapToolStripMenuItem,
+            this.yenileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(644, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // hesapToolStripMenuItem
+            // 
+            this.hesapToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guvenliCikisToolStripMenuItem});
+            this.hesapToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.hesapToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.hesapToolStripMenuItem.Name = "hesapToolStripMenuItem";
+            this.hesapToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.hesapToolStripMenuItem.Text = "[kullanıcı Adı]";
+            this.hesapToolStripMenuItem.DropDownClosed += new System.EventHandler(this.ToolStripMenuItem_DropDownClosed);
+            this.hesapToolStripMenuItem.DropDownOpened += new System.EventHandler(this.ToolStripMenuItem_DropDownOpened);
+            // 
+            // guvenliCikisToolStripMenuItem
+            // 
+            this.guvenliCikisToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.guvenliCikisToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guvenliCikisToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.guvenliCikisToolStripMenuItem.Name = "guvenliCikisToolStripMenuItem";
+            this.guvenliCikisToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.guvenliCikisToolStripMenuItem.Text = "Güvenli Çıkış";
+            this.guvenliCikisToolStripMenuItem.Click += new System.EventHandler(this.guvenliCikisToolStripMenuItem_Click);
+            // 
+            // yenileToolStripMenuItem
+            // 
+            this.yenileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.yenileToolStripMenuItem.Name = "yenileToolStripMenuItem";
+            this.yenileToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.yenileToolStripMenuItem.Text = "Yenile";
+            this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
+            // 
+            // groupBox_onayBekleyenUrunler
+            // 
+            this.groupBox_onayBekleyenUrunler.Controls.Add(this.flowLayoutPanel_bekleyenUrunler);
+            this.groupBox_onayBekleyenUrunler.Location = new System.Drawing.Point(37, 3);
+            this.groupBox_onayBekleyenUrunler.Name = "groupBox_onayBekleyenUrunler";
+            this.groupBox_onayBekleyenUrunler.Size = new System.Drawing.Size(578, 458);
+            this.groupBox_onayBekleyenUrunler.TabIndex = 0;
+            this.groupBox_onayBekleyenUrunler.TabStop = false;
+            // 
             // flowLayoutPanel_bekleyenUrunler
             // 
             this.flowLayoutPanel_bekleyenUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanel_bekleyenUrunler.AutoScroll = true;
+            this.flowLayoutPanel_bekleyenUrunler.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel_bekleyenUrunler.Controls.Add(this.panel_urun);
-            this.flowLayoutPanel_bekleyenUrunler.Location = new System.Drawing.Point(35, 6);
+            this.flowLayoutPanel_bekleyenUrunler.Location = new System.Drawing.Point(4, 14);
             this.flowLayoutPanel_bekleyenUrunler.Name = "flowLayoutPanel_bekleyenUrunler";
-            this.flowLayoutPanel_bekleyenUrunler.Size = new System.Drawing.Size(569, 458);
-            this.flowLayoutPanel_bekleyenUrunler.TabIndex = 0;
+            this.flowLayoutPanel_bekleyenUrunler.Size = new System.Drawing.Size(592, 440);
+            this.flowLayoutPanel_bekleyenUrunler.TabIndex = 1;
             // 
             // panel_urun
             // 
@@ -233,60 +522,6 @@ namespace taslakOdev
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tabPage_bekleyenBakiyeler
-            // 
-            this.tabPage_bekleyenBakiyeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.tabPage_bekleyenBakiyeler.Location = new System.Drawing.Point(4, 26);
-            this.tabPage_bekleyenBakiyeler.Name = "tabPage_bekleyenBakiyeler";
-            this.tabPage_bekleyenBakiyeler.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_bekleyenBakiyeler.Size = new System.Drawing.Size(636, 464);
-            this.tabPage_bekleyenBakiyeler.TabIndex = 1;
-            this.tabPage_bekleyenBakiyeler.Text = "Onay Bekleyen Bakiyeler";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hesapToolStripMenuItem,
-            this.yenileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(644, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // hesapToolStripMenuItem
-            // 
-            this.hesapToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guvenliCikisToolStripMenuItem});
-            this.hesapToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.hesapToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.hesapToolStripMenuItem.Name = "hesapToolStripMenuItem";
-            this.hesapToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.hesapToolStripMenuItem.Text = "[kullanıcı Adı]";
-            this.hesapToolStripMenuItem.DropDownClosed += new System.EventHandler(this.ToolStripMenuItem_DropDownClosed);
-            this.hesapToolStripMenuItem.DropDownOpened += new System.EventHandler(this.ToolStripMenuItem_DropDownOpened);
-            // 
-            // guvenliCikisToolStripMenuItem
-            // 
-            this.guvenliCikisToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.guvenliCikisToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guvenliCikisToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.guvenliCikisToolStripMenuItem.Name = "guvenliCikisToolStripMenuItem";
-            this.guvenliCikisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.guvenliCikisToolStripMenuItem.Text = "Güvenli Çıkış";
-            this.guvenliCikisToolStripMenuItem.Click += new System.EventHandler(this.guvenliCikisToolStripMenuItem_Click);
-            // 
-            // yenileToolStripMenuItem
-            // 
-            this.yenileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.yenileToolStripMenuItem.Name = "yenileToolStripMenuItem";
-            this.yenileToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.yenileToolStripMenuItem.Text = "Yenile";
-            this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
-            // 
             // Form_AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -300,16 +535,25 @@ namespace taslakOdev
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(660, 560);
             this.Name = "Form_AdminPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_AdminPanel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AdminPanel_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage_bekleyenUrunler.ResumeLayout(false);
+            this.tabPage_bekleyenBakiyeler.ResumeLayout(false);
+            this.groupBox_onayBekleyenBakiyeler.ResumeLayout(false);
+            this.flowLayoutPanel_bekleyenIslemler.ResumeLayout(false);
+            this.panel_bakiyeIslem.ResumeLayout(false);
+            this.panel_bakiyeIslem.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.groupBox_onayBekleyenUrunler.ResumeLayout(false);
             this.flowLayoutPanel_bekleyenUrunler.ResumeLayout(false);
             this.panel_urun.ResumeLayout(false);
             this.panel_urun.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,8 +564,34 @@ namespace taslakOdev
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_bekleyenUrunler;
         private System.Windows.Forms.TabPage tabPage_bekleyenBakiyeler;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hesapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guvenliCikisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox_onayBekleyenBakiyeler;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_bekleyenIslemler;
+        private System.Windows.Forms.Panel panel_bakiyeIslem;
+        private System.Windows.Forms.Label label_tarihAyrac;
+        private System.Windows.Forms.Label label_gerceklesmeTarihiTittle;
+        private System.Windows.Forms.Label label_gerceklesmeTarihiValue;
+        private System.Windows.Forms.Label label_islemTarihiTittle;
+        private System.Windows.Forms.Label label_islemMiktari;
+        private System.Windows.Forms.Label label_islemAciklama;
+        private System.Windows.Forms.Label label_islemTarihiValue;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox_onayBekleyenUrunler;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_bekleyenUrunler;
         private System.Windows.Forms.Panel panel_urun;
+        private System.Windows.Forms.Label label_pazarIDValue;
+        private System.Windows.Forms.Label label_pazarIDTittle;
+        private System.Windows.Forms.Label label_tarihValue;
         private System.Windows.Forms.Label label_tarihTittle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -331,12 +601,5 @@ namespace taslakOdev
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label_tarihValue;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem hesapToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem guvenliCikisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
-        private System.Windows.Forms.Label label_pazarIDValue;
-        private System.Windows.Forms.Label label_pazarIDTittle;
     }
 }

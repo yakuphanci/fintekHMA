@@ -33,6 +33,7 @@ namespace taslakOdev
         {
             this.components = new System.ComponentModel.Container();
             this.panel_menu = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button_kullaniciPazari = new System.Windows.Forms.Button();
             this.label_bakiye = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -61,6 +62,7 @@ namespace taslakOdev
             // 
             // panel_menu
             // 
+            this.panel_menu.Controls.Add(this.button1);
             this.panel_menu.Controls.Add(this.button_kullaniciPazari);
             this.panel_menu.Controls.Add(this.label_bakiye);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -68,6 +70,20 @@ namespace taslakOdev
             this.panel_menu.Name = "panel_menu";
             this.panel_menu.Size = new System.Drawing.Size(707, 40);
             this.panel_menu.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(208, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 34);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Bakiye İşlemleri";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button_bakiyeIslemleri_Click);
             // 
             // button_kullaniciPazari
             // 
@@ -81,7 +97,7 @@ namespace taslakOdev
             this.button_kullaniciPazari.TabIndex = 6;
             this.button_kullaniciPazari.Text = "Sahip Olduklarım ve Profilim";
             this.button_kullaniciPazari.UseVisualStyleBackColor = false;
-            this.button_kullaniciPazari.Click += new System.EventHandler(this.button_PazaraUrunEkle_Click);
+            this.button_kullaniciPazari.Click += new System.EventHandler(this.button_kullaniciPazari_Click);
             // 
             // label_bakiye
             // 
@@ -320,5 +336,6 @@ namespace taslakOdev
         private Label label4;
         private Label label5;
         private PictureBox pictureBox2;
+        private Button button1;
     }
 }

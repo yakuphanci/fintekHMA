@@ -58,7 +58,7 @@ namespace taslakOdev
             this.textBox_parola.Name = "textBox_parola";
             this.textBox_parola.Size = new System.Drawing.Size(315, 24);
             this.textBox_parola.TabIndex = 21;
-            this.textBox_parola.Text = "niloya147";
+            this.textBox_parola.Text = "123";
             this.textBox_parola.UseSystemPasswordChar = true;
             this.textBox_parola.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity);
             // 
@@ -96,7 +96,7 @@ namespace taslakOdev
             this.textBox_kullaniciAdi.Name = "textBox_kullaniciAdi";
             this.textBox_kullaniciAdi.Size = new System.Drawing.Size(315, 24);
             this.textBox_kullaniciAdi.TabIndex = 20;
-            this.textBox_kullaniciAdi.Text = "alperulger";
+            this.textBox_kullaniciAdi.Text = "muro5759";
             this.textBox_kullaniciAdi.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity);
             // 
             // Form_Giris

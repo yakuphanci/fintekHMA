@@ -10,7 +10,7 @@ namespace taslakOdev
     {
         public uint pazarID;
         public uint urunID;
-
+        public uint bakiyeIslemID;
     }
 
     public static class BenzersizIDOlusturucu
@@ -29,7 +29,13 @@ namespace taslakOdev
             JsonController.SaveJsonToFile(@"benzersizIDler.json", idTutucu);
             return idTutucu.urunID;
         }
-
+        public static uint GetBakiyeIslemID()
+        {
+            var idTutucu = JsonController.GetDataFromJSON<IDTutucu>(JsonController.GetJsonFromFile(@"benzersizIDler.json"));
+            idTutucu.bakiyeIslemID++;
+            JsonController.SaveJsonToFile(@"benzersizIDler.json", idTutucu);
+            return idTutucu.bakiyeIslemID;
+        }
 
     }
 }

@@ -23,12 +23,38 @@ namespace taslakOdev
             this.g_frm_main = _frm_main;
             this.g_aktifKullanici = (Kullanici)_aktifKullanici;
             hesapToolStripMenuItem.Text = this.g_aktifKullanici.KullaniciAdi;
-            BekleyenPazarUrunleriListele();
+            TumunuYenile();
         }
         #endregion
 
 
+
+        #region Sayfa Yenileme
+        //Yenileme click olayı ya da (F5)
+        private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TumunuYenile();
+        }
+        void TumunuYenile()
+        {
+            BekleyenPazarUrunleriListele();
+            Listele_OnayBekleyenBakiyeIslemleri();
+        }
+        #endregion
+
+
+        /************************/
+
+        List<SatilanUrun> GetSatilanUrunlerFromFile()
+        {
+            var json_pazarlar = JsonController.GetJsonFromFile(@"SatilanUrunler.json");
+            var pazarlar = JsonController.GetDataFromJSON<List<SatilanUrun>>(json_pazarlar);
+            return pazarlar;
+        }
+
         #region Bekleyen Urun Onaylama Islemleri
+      
+        //Onay Bekleyen Pazar Ürünleri Tıklama Olayı
         public void onayBekleyenUrun_Click(object sender, EventArgs e)
         {
             //Onaylanmak için tıklanan pazarın ID sini çektik.
@@ -47,11 +73,11 @@ namespace taslakOdev
             BekleyenPazarUrunleriListele();
         }
 
+        //Onay Bekleyen Urun Pazarını onayla.
         void PazardakiUrunOnayla(uint tiklananPazarID)
         {
             //pazardaki ürünleri çektik
-            var json_pazarlar = JsonController.GetJsonFromFile(@"SatilanUrunler.json");
-            var pazarlar = JsonController.GetDataFromJSON<List<SatilanUrun>>(json_pazarlar);
+            var pazarlar = GetSatilanUrunlerFromFile();
             
             //onaylanacak ürünü ayrıştırdık
             var tiklananPazar = (from pz in pazarlar
@@ -241,11 +267,322 @@ namespace taslakOdev
         }
         #endregion
 
-        #region Sayfa Yenileme
-        //Yenileme click olayı ya da (F5)
-        private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
+       
+        
+        //***********************/
+
+
+        #region Beklemedeki Bakiye Islemleri 
+
+        /// <summary>
+        /// Bakiye İşlemlerinin tutulduğu dosyadan bakiye işlemlerini çeker.
+        /// </summary>
+        /// <returns>Bir BakiyeKontrol türünde liste döndürür.</returns>
+        List<BakiyeIslemObject> GetBakiyeIslemlerFromFile()
         {
-            BekleyenPazarUrunleriListele();
+            var json_bakiyeIslemler = JsonController.GetJsonFromFile(@"bakiyeIslemler.json");
+            var bakiyeIslemler = JsonController.GetDataFromJSON<List<BakiyeIslemObject>>(json_bakiyeIslemler);
+
+            return bakiyeIslemler;
+        }
+
+        #region RENKLER
+        Color Yesil()
+        {
+            return System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+        }
+        Color Kirmizi()
+        {
+            return System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+        }
+
+        Color BGVarsayilan()
+        {
+            return System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+        }
+        Color BGKirmizi()
+        {
+            return System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+        }
+        #endregion
+
+        #region Islem Nesnesi Olusturma
+       
+        #region Islem Nesnesi Bilesenleri
+        Panel Get_BakiyeIslemContainer(Color BGColor, object Tag)
+        {
+            // 
+            // bakiyeIslemContainer
+            // 
+            var bakiyeIslemContainer = new Panel();
+            bakiyeIslemContainer.BackColor = BGColor;
+            bakiyeIslemContainer.Location = new System.Drawing.Point(3, 3);
+            bakiyeIslemContainer.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            bakiyeIslemContainer.Size = new System.Drawing.Size(355, 100);
+            bakiyeIslemContainer.Tag = Tag;
+            return bakiyeIslemContainer;
+
+
+        }
+
+        Label Get_tarihAyrac()
+        {
+            // 
+            // lbl_tarihAyrac
+            // 
+            var lbl_tarihAyrac = new Label();
+            lbl_tarihAyrac.AutoSize = true;
+            lbl_tarihAyrac.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            lbl_tarihAyrac.Location = new System.Drawing.Point(149, 11);
+            lbl_tarihAyrac.Size = new System.Drawing.Size(10, 13);
+            lbl_tarihAyrac.Text = "-";
+            return lbl_tarihAyrac;
+        }
+
+        Label Get_gerceklesmeTarihiTittle()
+        {
+            // 
+            // lbl_gerceklesmeTarihiTittle
+            // 
+            var lbl_gerceklesmeTarihiTittle = new Label();
+            lbl_gerceklesmeTarihiTittle.AutoSize = true;
+            lbl_gerceklesmeTarihiTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            lbl_gerceklesmeTarihiTittle.Location = new System.Drawing.Point(165, 11);
+            lbl_gerceklesmeTarihiTittle.Size = new System.Drawing.Size(97, 13);
+            lbl_gerceklesmeTarihiTittle.Text = "Gerçekleşme Tarihi:";
+            return lbl_gerceklesmeTarihiTittle;
+        }
+
+        Label Get_gerceklesmeTarihiValue(DateTime tarih)
+        {
+            // 
+            // lbl_gerceklesmeTarihiValue
+            // ***tarih
+            var lbl_gerceklesmeTarihiValue = new Label();
+            lbl_gerceklesmeTarihiValue.AutoSize = true;
+            lbl_gerceklesmeTarihiValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbl_gerceklesmeTarihiValue.Location = new System.Drawing.Point(267, 11);
+            lbl_gerceklesmeTarihiValue.Size = new System.Drawing.Size(69, 13);
+            lbl_gerceklesmeTarihiValue.Text = tarih.ToString("dd MMM yyyy");
+            return lbl_gerceklesmeTarihiValue;
+        }
+
+        Label Get_islemTarihiTittle()
+        {
+            // 
+            // lbl_islemTarihiTittle
+            // 
+            var lbl_islemTarihiTittle = new Label();
+            lbl_islemTarihiTittle.AutoSize = true;
+            lbl_islemTarihiTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            lbl_islemTarihiTittle.Location = new System.Drawing.Point(12, 11);
+            lbl_islemTarihiTittle.Size = new System.Drawing.Size(61, 13);
+            lbl_islemTarihiTittle.Text = "İşlem Tarihi:";
+            return lbl_islemTarihiTittle;
+
+        }
+
+        Label Get_islemTarihiValue(DateTime tarih)
+        {
+            // 
+            // lbl_islemTarihiValue
+            // ***tarih
+            var lbl_islemTarihiValue = new Label();
+            lbl_islemTarihiValue.AutoSize = true;
+            lbl_islemTarihiValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            lbl_islemTarihiValue.Location = new System.Drawing.Point(74, 11);
+            lbl_islemTarihiValue.Size = new System.Drawing.Size(69, 13);
+            lbl_islemTarihiValue.Text = tarih.ToString("dd MMM yyyy");
+            return lbl_islemTarihiValue;
+        }
+
+        Label Get_islemMiktari(string value, string birim, Color FRColor)
+        {
+            // 
+            // lbl_islemMiktari
+            // ***Renk ***miktar
+            var lbl_islemMiktari = new Label();
+            lbl_islemMiktari.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            lbl_islemMiktari.ForeColor = FRColor;
+            lbl_islemMiktari.Location = new System.Drawing.Point(181, 74);
+            lbl_islemMiktari.Size = new System.Drawing.Size(170, 22);
+            lbl_islemMiktari.Text = value + " " + birim;
+            lbl_islemMiktari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            return lbl_islemMiktari;
+        }
+
+        Label Get_islemAciklama(string value)
+        {
+            // 
+            // lbl_islemAciklama
+            // ***aciklama
+            var lbl_islemAciklama = new Label();
+            lbl_islemAciklama.AutoSize = true;
+            lbl_islemAciklama.Location = new System.Drawing.Point(12, 42);
+            lbl_islemAciklama.Size = new System.Drawing.Size(148, 18);
+            lbl_islemAciklama.Text = value;
+            return lbl_islemAciklama;
+        }
+        #endregion
+
+        Panel Get_BakiyeIslemNesnesi(BakiyeIslemObject islemNesnesi, object Tag)
+        {
+            //Gerekli olan parametreler asagida kullanilmak uzere gecici degiskenelre alindi.
+            bool reddedildiMi = (islemNesnesi.GetDegisiklikDurum() == BakiyeIslemStatics.stdDurum.reddedildi)
+                            || (islemNesnesi.GetDegisiklikDurum() == BakiyeIslemStatics.stdDurum.yetersizBakiye);
+
+            bool incelendiMi = !(islemNesnesi.GetDegisiklikDurum() == BakiyeIslemStatics.stdDurum.incelemede);
+            DateTime islemTarihi = islemNesnesi.islemTarihi;
+            DateTime gerceklesmeTarihi = islemNesnesi.gerceklesmeTarihi;
+            double miktar = islemNesnesi.degisiklikMiktari;
+                                                    //Eğer reddedildiyse sebebini sonuna ekle.
+            string aciklama = islemNesnesi.aciklama + islemNesnesi.redNedeni();
+            
+
+
+
+            //Container
+            Color BGColor = reddedildiMi ? BGKirmizi() : BGVarsayilan();
+            Panel islemContainer = Get_BakiyeIslemContainer(BGColor, Tag);
+
+            //İşlem Tarihi
+            islemContainer.Controls.Add(Get_islemTarihiTittle());
+            islemContainer.Controls.Add(Get_islemTarihiValue(islemTarihi));
+
+            //Eger incelendiyse gerçekleşleşme tarihi vardır. İncelenemdiyse bunu ekleme.
+            if (incelendiMi)
+            {
+                //Ayraç
+                islemContainer.Controls.Add(Get_tarihAyrac());
+
+                //Gerçekleşme Tarihi
+                islemContainer.Controls.Add(Get_gerceklesmeTarihiTittle());
+                islemContainer.Controls.Add(Get_gerceklesmeTarihiValue(gerceklesmeTarihi));
+            }
+
+
+            //İşlem Açıklama
+            islemContainer.Controls.Add(Get_islemAciklama(aciklama));
+
+            //İşlem Miktar
+            Color FRColor = (miktar < 0) ? Kirmizi() : Yesil();
+            islemContainer.Controls.Add(Get_islemMiktari(miktar.ToString(), "₺", FRColor));
+
+
+            return islemContainer;
+        }
+
+        #endregion
+
+
+        #region Bakiye Islemleri Listeleme Islemi
+        void Listele_OnayBekleyenBakiyeIslemleri()
+        {
+            var bakiyeIslemler = GetBakiyeIslemlerFromFile();
+
+            //kullanicinin bekleyen islemlerini ayıklayıp tarihe(islem) göre sıraladık. (En son en başa.)
+            var bekleyenIslemler = (from bi in bakiyeIslemler
+                                    where bi.incelendiMi == false
+                                    orderby bi.islemTarihi descending
+                                    select bi).ToList();
+
+            flowLayoutPanel_bekleyenIslemler.Controls.Clear();
+            foreach (var bekleyenIslem in bekleyenIslemler)
+            {
+
+                //islem Nesnesine gerekli parametreleri verip olusturduk.
+                var islemNesne = Get_BakiyeIslemNesnesi(bekleyenIslem, bekleyenIslem.ID);
+
+                //Tıklanma özelliği ekledik.
+                islemNesne.Cursor = Cursors.Hand;
+                islemNesne.Click += new EventHandler(BakiyeIslemNesnesi_Click);
+
+                //ekrana yansıttık.
+                flowLayoutPanel_bekleyenIslemler.Controls.Add(islemNesne);
+            }
+
+        }
+        #endregion
+
+
+        #region Bekleyen Bakiye Islemi Onaylama Islemleri
+        //Bakiye Islemi tiklama olayı
+        void BakiyeIslemNesnesi_Click(object sender, EventArgs e)
+        {
+            var islemID = (uint)( ((Panel)(sender)).Tag );
+            DialogResult dResult =
+                 MessageBox.Show(
+                     "[ " + islemID + " ] işlem numaralı bakiye değişiklik işlemini onaylıyorsanız \"Evet\" onaylamıyorsanız \"Hayır\" seçeneğini seçiniz. " +
+                     "\n İşlemi iptal etmek için lütfen \"İptal\" seçeneğini seçiniz.",
+                     "İşlemi onaylıyor musunuz?",
+                     MessageBoxButtons.YesNoCancel);
+            if(dResult != DialogResult.Cancel)
+            {
+                if(dResult == DialogResult.Yes)
+                {
+                    //Evet dediyse admin, yapılmak istenen işleme izin ver.
+                    Incele_BakiyeIslemi(islemID, true);
+                }
+                else
+                {
+                    //Hayır dediyse yapılmak istenen işleme izin verme.
+                    Incele_BakiyeIslemi(islemID, false);
+                 
+                }
+                Listele_OnayBekleyenBakiyeIslemleri();
+            }
+
+          
+        }
+        
+        //Bakiye Islemini Onaylayıp dosyaya kaydetme islemi
+        void Incele_BakiyeIslemi(uint onaylanacakIslemID, bool izinverildiMi)
+        {
+            var bakiyeIslemleri = GetBakiyeIslemlerFromFile();
+
+            //üzerinde işlem yapılacak bakiye işlemi ayıklandı.
+            var islem = (from bi in bakiyeIslemleri
+                         where bi.ID == onaylanacakIslemID
+                         select bi).ToList()[0];
+            islem.incelendiMi = true;
+            islem.onaylandiMi = izinverildiMi;
+            //şartlar sağlanıyorsa değişiklik işlemini gerçekleştir.
+       
+            if (!islem.degisiklikGerceklestir() && izinverildiMi)
+            {
+                //admin izin verdi ama değişiklik gerçekleşmediyse bilgilendir.
+                Mesajlar.SadeMesaj(
+                    "Kullanıcının bakiyesi yetersiz olduğundan işlem gerçekleştirilemedi.",
+                    "Kullanıcı Bakiye İşlem talebi gerçekleştirilmedi.");
+            
+            }
+            else
+            {
+                //kullanıcının yeterli bakiyesi varsa işlem başarılı mesajı ver.
+                Mesajlar.Basarili();
+            }
+
+            JsonController.SaveJsonToFile(@"bakiyeIslemler.json",bakiyeIslemleri);
+
+        }
+        #endregion
+
+        #endregion
+
+
+        /************************/
+
+        #region Menu Strip Koyu tema ayarı
+        private void ToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            // menu strip renk ayarı
+            ((ToolStripMenuItem)(sender)).ForeColor = Color.Black;
+        }
+
+        private void ToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            // menu strip renk ayarı
+            ((ToolStripMenuItem)(sender)).ForeColor = Color.WhiteSmoke;
         }
         #endregion
 
@@ -262,20 +599,6 @@ namespace taslakOdev
             g_bGuvenliCikis = true;
             g_frm_main.Show();
             this.Close();
-        }
-        #endregion
-
-        #region Menu Strip Koyu tema ayarı
-        private void ToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
-        {
-            // menu strip renk ayarı
-            ((ToolStripMenuItem)(sender)).ForeColor = Color.Black;
-        }
-
-        private void ToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
-        {
-            // menu strip renk ayarı
-            ((ToolStripMenuItem)(sender)).ForeColor = Color.WhiteSmoke;
         }
         #endregion
 

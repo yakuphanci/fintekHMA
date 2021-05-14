@@ -57,13 +57,15 @@ namespace taslakOdev
             // 
             // button_onayla
             // 
-            this.button_onayla.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button_onayla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.button_onayla.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_onayla.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_onayla.Location = new System.Drawing.Point(39, 221);
             this.button_onayla.Name = "button_onayla";
             this.button_onayla.Size = new System.Drawing.Size(210, 35);
             this.button_onayla.TabIndex = 11;
             this.button_onayla.Text = "Onayla";
-            this.button_onayla.UseVisualStyleBackColor = true;
+            this.button_onayla.UseVisualStyleBackColor = false;
             this.button_onayla.Click += new System.EventHandler(this.button_onayla_Click);
             // 
             // numericUpDown_miktar

@@ -1,5 +1,4 @@
-﻿
-namespace taslakOdev
+﻿namespace taslakOdev
 {
     partial class Form_Profil
     {
@@ -31,13 +30,16 @@ namespace taslakOdev
         {
             this.components = new System.ComponentModel.Container();
             this.panel_menu = new System.Windows.Forms.Panel();
-            this.button_bakiyeYukle = new System.Windows.Forms.Button();
+            this.button_bakiyeIslemleri = new System.Windows.Forms.Button();
             this.button_urunEkle = new System.Windows.Forms.Button();
             this.label_bakiye = new System.Windows.Forms.Label();
             this.button_yenile = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_beklemedekiUrunler = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_pazarIDValue = new System.Windows.Forms.Label();
+            this.label_pazarIDTittle = new System.Windows.Forms.Label();
+            this.button_yayindanKaldir = new System.Windows.Forms.Button();
             this.label_tarihValue = new System.Windows.Forms.Label();
             this.label_tarihTittle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,10 +64,7 @@ namespace taslakOdev
             this.button_bekleyenUrunler = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button_yayindanKaldir = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label_pazarIDValue = new System.Windows.Forms.Label();
-            this.label_pazarIDTittle = new System.Windows.Forms.Label();
             this.panel_menu.SuspendLayout();
             this.groupBox.SuspendLayout();
             this.flowLayoutPanel_beklemedekiUrunler.SuspendLayout();
@@ -79,7 +78,7 @@ namespace taslakOdev
             // 
             // panel_menu
             // 
-            this.panel_menu.Controls.Add(this.button_bakiyeYukle);
+            this.panel_menu.Controls.Add(this.button_bakiyeIslemleri);
             this.panel_menu.Controls.Add(this.button_urunEkle);
             this.panel_menu.Controls.Add(this.label_bakiye);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -88,19 +87,20 @@ namespace taslakOdev
             this.panel_menu.Size = new System.Drawing.Size(662, 40);
             this.panel_menu.TabIndex = 2;
             // 
-            // button_bakiyeYukle
+            // button_bakiyeIslemleri
             // 
-            this.button_bakiyeYukle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_bakiyeYukle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.button_bakiyeYukle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_bakiyeYukle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_bakiyeYukle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_bakiyeYukle.Location = new System.Drawing.Point(161, 3);
-            this.button_bakiyeYukle.Name = "button_bakiyeYukle";
-            this.button_bakiyeYukle.Size = new System.Drawing.Size(102, 34);
-            this.button_bakiyeYukle.TabIndex = 6;
-            this.button_bakiyeYukle.Text = "Bakiye Yükle";
-            this.button_bakiyeYukle.UseVisualStyleBackColor = false;
+            this.button_bakiyeIslemleri.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_bakiyeIslemleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.button_bakiyeIslemleri.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_bakiyeIslemleri.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_bakiyeIslemleri.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button_bakiyeIslemleri.Location = new System.Drawing.Point(161, 3);
+            this.button_bakiyeIslemleri.Name = "button_bakiyeIslemleri";
+            this.button_bakiyeIslemleri.Size = new System.Drawing.Size(102, 34);
+            this.button_bakiyeIslemleri.TabIndex = 6;
+            this.button_bakiyeIslemleri.Text = "Bakiye İşlemleri";
+            this.button_bakiyeIslemleri.UseVisualStyleBackColor = false;
+            this.button_bakiyeIslemleri.Click += new System.EventHandler(this.button_bakiyeIslemleri_Click);
             // 
             // button_urunEkle
             // 
@@ -144,7 +144,7 @@ namespace taslakOdev
             this.button_yenile.TabIndex = 4;
             this.button_yenile.Text = "R";
             this.button_yenile.UseVisualStyleBackColor = false;
-            this.button_yenile.Click += new System.EventHandler(this.button_yenile_Click);
+            this.button_yenile.Click += new System.EventHandler(this.yenile_Click);
             // 
             // groupBox
             // 
@@ -192,6 +192,39 @@ namespace taslakOdev
             this.panel1.Size = new System.Drawing.Size(560, 130);
             this.panel1.TabIndex = 1;
             this.panel1.Tag = "15512";
+            // 
+            // label_pazarIDValue
+            // 
+            this.label_pazarIDValue.AutoSize = true;
+            this.label_pazarIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.label_pazarIDValue.Location = new System.Drawing.Point(477, 91);
+            this.label_pazarIDValue.Name = "label_pazarIDValue";
+            this.label_pazarIDValue.Size = new System.Drawing.Size(32, 16);
+            this.label_pazarIDValue.TabIndex = 16;
+            this.label_pazarIDValue.Text = "124";
+            // 
+            // label_pazarIDTittle
+            // 
+            this.label_pazarIDTittle.AutoSize = true;
+            this.label_pazarIDTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label_pazarIDTittle.Location = new System.Drawing.Point(412, 91);
+            this.label_pazarIDTittle.Name = "label_pazarIDTittle";
+            this.label_pazarIDTittle.Size = new System.Drawing.Size(62, 16);
+            this.label_pazarIDTittle.TabIndex = 15;
+            this.label_pazarIDTittle.Text = "Pazar ID:";
+            // 
+            // button_yayindanKaldir
+            // 
+            this.button_yayindanKaldir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.button_yayindanKaldir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_yayindanKaldir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button_yayindanKaldir.Location = new System.Drawing.Point(532, 5);
+            this.button_yayindanKaldir.Name = "button_yayindanKaldir";
+            this.button_yayindanKaldir.Size = new System.Drawing.Size(25, 25);
+            this.button_yayindanKaldir.TabIndex = 14;
+            this.button_yayindanKaldir.Text = "X";
+            this.toolTip1.SetToolTip(this.button_yayindanKaldir, "Sistemden Kaldır");
+            this.button_yayindanKaldir.UseVisualStyleBackColor = false;
             // 
             // label_tarihValue
             // 
@@ -452,20 +485,7 @@ namespace taslakOdev
             this.yenileToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.yenileToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.yenileToolStripMenuItem.Text = "Yenile";
-            this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
-            // 
-            // button_yayindanKaldir
-            // 
-            this.button_yayindanKaldir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.button_yayindanKaldir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_yayindanKaldir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button_yayindanKaldir.Location = new System.Drawing.Point(532, 5);
-            this.button_yayindanKaldir.Name = "button_yayindanKaldir";
-            this.button_yayindanKaldir.Size = new System.Drawing.Size(25, 25);
-            this.button_yayindanKaldir.TabIndex = 14;
-            this.button_yayindanKaldir.Text = "X";
-            this.toolTip1.SetToolTip(this.button_yayindanKaldir, "Sistemden Kaldır");
-            this.button_yayindanKaldir.UseVisualStyleBackColor = false;
+            this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenile_Click);
             // 
             // toolTip1
             // 
@@ -473,26 +493,6 @@ namespace taslakOdev
             this.toolTip1.InitialDelay = 300;
             this.toolTip1.ReshowDelay = 500;
             this.toolTip1.ShowAlways = true;
-            // 
-            // label_pazarIDValue
-            // 
-            this.label_pazarIDValue.AutoSize = true;
-            this.label_pazarIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.label_pazarIDValue.Location = new System.Drawing.Point(477, 91);
-            this.label_pazarIDValue.Name = "label_pazarIDValue";
-            this.label_pazarIDValue.Size = new System.Drawing.Size(32, 16);
-            this.label_pazarIDValue.TabIndex = 16;
-            this.label_pazarIDValue.Text = "124";
-            // 
-            // label_pazarIDTittle
-            // 
-            this.label_pazarIDTittle.AutoSize = true;
-            this.label_pazarIDTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label_pazarIDTittle.Location = new System.Drawing.Point(412, 91);
-            this.label_pazarIDTittle.Name = "label_pazarIDTittle";
-            this.label_pazarIDTittle.Size = new System.Drawing.Size(62, 16);
-            this.label_pazarIDTittle.TabIndex = 15;
-            this.label_pazarIDTittle.Text = "Pazar ID:";
             // 
             // Form_Profil
             // 
@@ -513,7 +513,6 @@ namespace taslakOdev
             this.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_Profil";
-            this.Load += new System.EventHandler(this.Form_UrunSat_Load);
             this.panel_menu.ResumeLayout(false);
             this.panel_menu.PerformLayout();
             this.groupBox.ResumeLayout(false);
@@ -560,7 +559,7 @@ namespace taslakOdev
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button_bakiyeYukle;
+        private System.Windows.Forms.Button button_bakiyeIslemleri;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
         private System.Windows.Forms.Label label_tarihValue;
