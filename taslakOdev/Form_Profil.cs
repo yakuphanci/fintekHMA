@@ -266,20 +266,63 @@ namespace taslakOdev
 
 
         #region Bekleyenler/Yayındakiler listesi görünüm geçiş buton olayları
+        
+        #region Show/Hide Panels
+        void Show_Panel(object sender)
+        {
+            ((Panel)sender).Visible = true;
+        }
+
+        void Hide_Panel(object sender)
+        {
+            ((Panel)sender).Visible = false;
+        }
+        #endregion
+
+        #region aktive/deAktive Buttons
+        void aktive_Button(object sender)
+        {
+            ((Button)sender).FlatStyle = FlatStyle.Flat;
+            ((Button)sender).Cursor = Cursors.Default;
+        }
+        void deAktive_Button(object sender)
+        {
+            ((Button)sender).FlatStyle = FlatStyle.Popup;
+            ((Button)sender).Cursor = Cursors.Hand;
+
+        }
+        #endregion
+
         private void button_satistakiUrunler_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel_beklemedekiUrunler.Visible = false;
-            flowLayoutPanel_yayindakiUrunler.Visible = true;
-            button_satistakiUrunler.Enabled = false;
-            button_bekleyenUrunler.Enabled = true;
+            //Tıkladığımız butonun tasarımını seçilmiş gibi yaptık.
+            aktive_Button(sender);
+
+            //Beklemedeki ürünler butonunu seçilmemiş gibi gösterdik.
+            deAktive_Button(button_bekleyenUrunler);
+
+            //Beklemedeki ürünleri gizledik.
+            Hide_Panel(flowLayoutPanel_beklemedekiUrunler);
+
+            //Satıştaki ürünleri gösterdik.
+            Show_Panel(flowLayoutPanel_yayindakiUrunler);
+
         }
 
         private void button_bekleyenUrunler_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel_yayindakiUrunler.Visible = false;
-            flowLayoutPanel_beklemedekiUrunler.Visible = true;
-            button_bekleyenUrunler.Enabled = false;
-            button_satistakiUrunler.Enabled = true;
+            //Tıkladığımız butonun tasarımını seçilmiş gibi yaptık.
+            aktive_Button(sender);
+
+            //Satıştaki ürünler butonunu seçilmemiş gibi gösterdik.
+            deAktive_Button(button_satistakiUrunler);
+
+            //Satıştaki ürünleri gizledik.
+            Hide_Panel(flowLayoutPanel_yayindakiUrunler);
+
+            //Beklemedeki ürünleri gösterdik.
+            Show_Panel(flowLayoutPanel_beklemedekiUrunler);
+
         }
 
         #endregion

@@ -438,9 +438,8 @@
             // button_satistakiUrunler
             // 
             this.button_satistakiUrunler.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button_satistakiUrunler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.button_satistakiUrunler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button_satistakiUrunler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_satistakiUrunler.Enabled = false;
             this.button_satistakiUrunler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_satistakiUrunler.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.button_satistakiUrunler.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -455,7 +454,7 @@
             // button_bekleyenUrunler
             // 
             this.button_bekleyenUrunler.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button_bekleyenUrunler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.button_bekleyenUrunler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button_bekleyenUrunler.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_bekleyenUrunler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_bekleyenUrunler.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
