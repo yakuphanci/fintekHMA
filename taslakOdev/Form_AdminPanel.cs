@@ -28,7 +28,6 @@ namespace taslakOdev
         #endregion
 
 
-
         #region Sayfa Yenileme
         //Yenileme click olayı ya da (F5)
         private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -267,25 +266,9 @@ namespace taslakOdev
         }
         #endregion
 
-       
-        
+
+
         //***********************/
-
-
-        #region Beklemedeki Bakiye Islemleri 
-
-        /// <summary>
-        /// Bakiye İşlemlerinin tutulduğu dosyadan bakiye işlemlerini çeker.
-        /// </summary>
-        /// <returns>Bir BakiyeKontrol türünde liste döndürür.</returns>
-        List<BakiyeIslemObject> GetBakiyeIslemlerFromFile()
-        {
-            var json_bakiyeIslemler = JsonController.GetJsonFromFile(@"bakiyeIslemler.json");
-            var bakiyeIslemler = JsonController.GetDataFromJSON<List<BakiyeIslemObject>>(json_bakiyeIslemler);
-
-            return bakiyeIslemler;
-        }
-
         #region RENKLER
         Color Yesil()
         {
@@ -306,7 +289,22 @@ namespace taslakOdev
         }
         #endregion
 
-        #region Islem Nesnesi Olusturma
+
+        /// <summary>
+        /// Bakiye İşlemlerinin tutulduğu dosyadan bakiye işlemlerini çeker.
+        /// </summary>
+        /// <returns>Bir BakiyeKontrol türünde liste döndürür.</returns>
+        List<BakiyeIslemObject> GetBakiyeIslemlerFromFile()
+        {
+            var json_bakiyeIslemler = JsonController.GetJsonFromFile(@"bakiyeIslemler.json");
+            var bakiyeIslemler = JsonController.GetDataFromJSON<List<BakiyeIslemObject>>(json_bakiyeIslemler);
+
+            return bakiyeIslemler;
+        }
+
+        #region Beklemedeki Bakiye Islemleri 
+
+        #region Bakiye Islem Nesnesi Olusturma
        
         #region Islem Nesnesi Bilesenleri
         Panel Get_BakiyeIslemContainer(Color BGColor, object Tag)
@@ -423,56 +421,115 @@ namespace taslakOdev
             lbl_islemAciklama.Text = value;
             return lbl_islemAciklama;
         }
+
+        Label Get_islemTalepEdenTittle()
+        {
+            // 
+            // label_bakiyeIslemTalepEdenTittle
+            // 
+            Label talepEdenTittle = new Label();
+            talepEdenTittle.AutoSize = true;
+            talepEdenTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            talepEdenTittle.Location = new System.Drawing.Point(12, 80);
+            talepEdenTittle.Size = new System.Drawing.Size(65, 13);
+            talepEdenTittle.Text = "Talep Eden:";
+            return talepEdenTittle;
+           
+        }
+
+        Label Get_islemTalepEdenValue(string value)
+        {
+            // 
+            // label_bakiyeIslemTalepEdenValue
+            // 
+            Label talepEdenValue = new Label();
+            talepEdenValue.AutoSize = true;
+            talepEdenValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            talepEdenValue.Location = new System.Drawing.Point(74, 80);
+            talepEdenValue.Size = new System.Drawing.Size(58, 13);
+            talepEdenValue.Text = value;
+            return talepEdenValue;
+        }
+
+        Label Get_islemTalepNoValue(uint talepID)
+        {
+            // 
+            //  bakiyeIslemTalepNumValue
+            // 
+            Label islemTalepNumValue = new Label();
+            islemTalepNumValue.AutoSize = true;
+            islemTalepNumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            islemTalepNumValue.Location = new System.Drawing.Point(74, 65);
+            islemTalepNumValue.Size = new System.Drawing.Size(28, 13);
+            islemTalepNumValue.Text = talepID.ToString();
+            return islemTalepNumValue;
+         
+        }
+
+        Label Get_islemTalepNoTittle()
+        {
+            // 
+            // bakiyeIslemTalepNumTittle
+            // 
+            Label islemTalepNumTittle = new Label();
+            islemTalepNumTittle.AutoSize = true;
+            islemTalepNumTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            islemTalepNumTittle.Location = new System.Drawing.Point(12, 65);
+            islemTalepNumTittle.Size = new System.Drawing.Size(62, 13);
+            islemTalepNumTittle.Text = "Talep Num:";
+            return islemTalepNumTittle;
+        }
         #endregion
 
+        //Admin onayı için olan
         Panel Get_BakiyeIslemNesnesi(BakiyeIslemObject islemNesnesi, object Tag)
         {
             //Gerekli olan parametreler asagida kullanilmak uzere gecici degiskenelre alindi.
-            bool reddedildiMi = (islemNesnesi.GetDegisiklikDurum() == BakiyeIslemStatics.stdDurum.reddedildi)
-                            || (islemNesnesi.GetDegisiklikDurum() == BakiyeIslemStatics.stdDurum.yetersizBakiye);
-
-            bool incelendiMi = !(islemNesnesi.GetDegisiklikDurum() == BakiyeIslemStatics.stdDurum.incelemede);
             DateTime islemTarihi = islemNesnesi.islemTarihi;
-            DateTime gerceklesmeTarihi = islemNesnesi.gerceklesmeTarihi;
-            double miktar = islemNesnesi.degisiklikMiktari;
-                                                    //Eğer reddedildiyse sebebini sonuna ekle.
-            string aciklama = islemNesnesi.aciklama + islemNesnesi.redNedeni();
-            
-
+            string aciklama = islemNesnesi.aciklama;
+            double miktar = islemNesnesi.degisiklikMiktari;                           
+            string talepEden = islemNesnesi.kullaniciAdi;
+            uint talepID = islemNesnesi.ID;
 
 
             //Container
-            Color BGColor = reddedildiMi ? BGKirmizi() : BGVarsayilan();
-            Panel islemContainer = Get_BakiyeIslemContainer(BGColor, Tag);
+            Panel islemContainer = Get_BakiyeIslemContainer(BGVarsayilan(), Tag);
 
             //İşlem Tarihi
             islemContainer.Controls.Add(Get_islemTarihiTittle());
             islemContainer.Controls.Add(Get_islemTarihiValue(islemTarihi));
-
-            //Eger incelendiyse gerçekleşleşme tarihi vardır. İncelenemdiyse bunu ekleme.
-            if (incelendiMi)
-            {
-                //Ayraç
-                islemContainer.Controls.Add(Get_tarihAyrac());
-
-                //Gerçekleşme Tarihi
-                islemContainer.Controls.Add(Get_gerceklesmeTarihiTittle());
-                islemContainer.Controls.Add(Get_gerceklesmeTarihiValue(gerceklesmeTarihi));
-            }
 
 
             //İşlem Açıklama
             islemContainer.Controls.Add(Get_islemAciklama(aciklama));
 
             //İşlem Miktar
-            Color FRColor = (miktar < 0) ? Kirmizi() : Yesil();
+            Color FRColor = (miktar < 0) ? Kirmizi() : Yesil(); //Çekme işlemi yaptıysa kırmızı yatırma yaptıysa yeişil.
             islemContainer.Controls.Add(Get_islemMiktari(miktar.ToString(), "₺", FRColor));
+
+            //Talep eden tittle ve talep edenin adını yolladık.
+            islemContainer.Controls.Add(Get_islemTalepEdenTittle());
+            islemContainer.Controls.Add(Get_islemTalepEdenValue(talepEden));
+
+            //Talep Numarası tittle ve talep numarasını yolladık.
+            islemContainer.Controls.Add(Get_islemTalepNoTittle());
+            islemContainer.Controls.Add(Get_islemTalepNoValue(talepID));
+
+            //Tıklanma özelliği ekledik.
+            AddEvent_Click(islemContainer, BakiyeIslemNesnesi_Click);
 
 
             return islemContainer;
         }
 
         #endregion
+
+
+        void AddEvent_Click(Panel sender, EventHandler eventHandlerMethod)
+        {
+            (sender).Cursor = Cursors.Hand;
+            (sender).Click += new EventHandler(eventHandlerMethod);
+        }
 
 
         #region Bakiye Islemleri Listeleme Islemi
@@ -493,9 +550,7 @@ namespace taslakOdev
                 //islem Nesnesine gerekli parametreleri verip olusturduk.
                 var islemNesne = Get_BakiyeIslemNesnesi(bekleyenIslem, bekleyenIslem.ID);
 
-                //Tıklanma özelliği ekledik.
-                islemNesne.Cursor = Cursors.Hand;
-                islemNesne.Click += new EventHandler(BakiyeIslemNesnesi_Click);
+                
 
                 //ekrana yansıttık.
                 flowLayoutPanel_bekleyenIslemler.Controls.Add(islemNesne);
