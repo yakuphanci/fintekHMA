@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace taslakOdev
@@ -25,31 +18,26 @@ namespace taslakOdev
         #region Buton Giris
         private void button_giris_Click(object sender, EventArgs e)
         {
-            string json_kullanicilar = JsonController.GetJsonFromFile(@"kullanicilar.json");
-            var kullanicilar = JsonController.GetDataFromJSON<List<Kullanici>>(json_kullanicilar);
 
-            var girisKullanici = (from k in kullanicilar
-                                 where
-                                 k.KullaniciAdi == textBox_kullaniciAdi.Text &&
-                                 k.Parola == textBox_parola.Text
-                                 select k).ToList();
+            var kullanicilar = Veriler.GetKullanicilar();
+            var girisKullanici = Veriler.GetKullanici(textBox_kullaniciAdi.Text);
            
             //girilen bilgilere uygun kullanıcı varsa giriş işlemini gerçekleştir.
-            if (girisKullanici.Count == 1)
+            if(girisKullanici != null && girisKullanici.Parola == textBox_parola.Text)
             {
                 g_frm_main.Hide();
                 this.Close();
                 #region Adminse..
-                if (girisKullanici[0].yetki == Yetki.Admin)
+                if (girisKullanici.yetki == Yetki.Admin)
                 {
-                    Form_AdminPanel frm_adminPanel = new Form_AdminPanel(g_frm_main, girisKullanici[0]);
+                    Form_AdminPanel frm_adminPanel = new Form_AdminPanel(g_frm_main, girisKullanici);
                     frm_adminPanel.Show();
                 }
                 #endregion
                 #region Degilse...
                 else
                 { 
-                    Form_Uygulama frm_uygulama = new Form_Uygulama(g_frm_main, girisKullanici[0]);
+                    Form_Uygulama frm_uygulama = new Form_Uygulama(g_frm_main, girisKullanici);
                     frm_uygulama.Show();
                 }
                 #endregion

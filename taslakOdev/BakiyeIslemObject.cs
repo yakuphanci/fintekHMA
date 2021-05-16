@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace taslakOdev
 {
@@ -35,25 +32,25 @@ namespace taslakOdev
         public bool onaylandiMi;
         //işlemin gerçekleşip gerçekleşmediği bilgisini tutar.
         public bool gerceklestiMi;
+        //islemin reddedilip edilmediği bilgisini tutar
+        public bool reddedildiMi;
 
-        public bool degisiklikGerceklestir()
+        public bool IslemiIsle(bool izin)
         {
-            //incelenmediyse ve admin onayı verildiyse bu işlemleri yap. 
-
-
+            
             this.gerceklesmeTarihi = DateTime.Now;
+            //kullanicilar Listesi çekildi
+            var kullanicilar = Veriler.GetKullanicilar();
 
+            //değişiklik isteyen kullanıcı seçildi.
+            var kullanici = (from k in kullanicilar
+                             where k.KullaniciAdi == this.kullaniciAdi
+                             select k).ToList()[0];
 
-            if (this.onaylandiMi == true)
+            this.onaylandiMi = izin;
+            if (izin == true)
             {
-                //kullanicilar Listesi çekildi
-                var kullanicilar = JsonController.GetDataFromJSON<List<Kullanici>>(JsonController.GetJsonFromFile(@"kullanicilar.json"));
-
-                //değişiklik isteyen kullanıcı seçildi.
-                var kullanici = (from k in kullanicilar
-                                 where k.KullaniciAdi == this.kullaniciAdi
-                                 select k).ToList()[0];
-
+               
                 //Değişiklik sonucu bakiye -'lenecek mi diye bi bakıldı.
                 double olasiDurum = kullanici.Bakiye + this.degisiklikMiktari;
                 if (olasiDurum >= 0)
@@ -62,45 +59,59 @@ namespace taslakOdev
                     kullanici.Bakiye += this.degisiklikMiktari;
 
                     //gerçekleşti olarak isaretlendi
-
                     this.gerceklestiMi = true;
-
-                    //Dosya kaydedildi.
-                    JsonController.SaveJsonToFile(@"kullanicilar.json", kullanicilar);
-
                 }
+                else
+                {
+                    this.reddedildiMi = true;
+                }
+            
+            }
+            else
+            {
+                this.reddedildiMi = true;
             }
 
-            return this.gerceklestiMi;
+            //Dosya kaydedildi.
+            Veriler.SaveData(kullanicilar);
 
-
-
-
-        }
-
-
-        public string GetDegisiklikDurum()
-        {
-            //Bakiye işleminin anlık durumunu döndürür.
-            if (incelendiMi == true && onaylandiMi == true && gerceklestiMi == true)
-                return BakiyeIslemStatics.stdDurum.onaylandi;
-            else if (incelendiMi == true && onaylandiMi == true )
-                return BakiyeIslemStatics.stdDurum.yetersizBakiye;
-            else if (incelendiMi == true )
-                return BakiyeIslemStatics.stdDurum.reddedildi;
+            //işlem gerçekleştiyse ya da gerçekleşmesine izin verilmediyse TRUE döndür.
+            if ( izin == false || this.gerceklestiMi == true )
+                return true;
+            //izin verildi fakat  işlem gerçekleşmediyse FALSE döndür.
             else
-                return BakiyeIslemStatics.stdDurum.incelemede;
+                return false;
+
+            //FALSE dönmesi için izin verilmiş ama BAKİYEnin yetersiz olması lazım.
+
         }
 
         public string redNedeni()
         {
-            //incelenmesine rağmen işlem gerçekleşmediyse red sebebini açıklamaya ekle.
-            if (this.incelendiMi == true && this.gerceklestiMi == false)
-                return  " - " + GetDegisiklikDurum();
+            if (reddedildiMi)
+                return GetDegisiklikDurum();
             else
                 return "";
+        }
+
+        public string GetDegisiklikDurum()
+        {
+            //Bakiye işleminin anlık durumunu döndürür.
+
+            if(incelendiMi == true)
+                if(reddedildiMi == true)
+                    if(onaylandiMi == true)
+                        return BakiyeIslemStatics.stdDurum.yetersizBakiye;
+                    else
+                        return BakiyeIslemStatics.stdDurum.reddedildi;
+                else
+                    return BakiyeIslemStatics.stdDurum.onaylandi;
+            else
+                return BakiyeIslemStatics.stdDurum.incelemede;
 
         }
+
+    
 
     }
 

@@ -29,6 +29,7 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_UrunEkle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_onayla = new System.Windows.Forms.Button();
             this.numericUpDown_miktar = new System.Windows.Forms.NumericUpDown();
@@ -147,12 +148,12 @@ namespace taslakOdev
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_UrunEkle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_UrunEkle";
+            this.Text = "Yeni Ürün Satışı Talebi";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Form_UrunEkle_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_miktar)).EndInit();

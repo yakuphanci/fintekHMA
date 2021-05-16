@@ -29,6 +29,7 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_kayitOl = new System.Windows.Forms.Button();
             this.button_giris = new System.Windows.Forms.Button();
@@ -87,9 +88,10 @@ namespace taslakOdev
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_Main";
-            this.Text = "Form_Main";
+            this.Text = "Hoşgeldiniz.  - HMA Tarımsal Borsa";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

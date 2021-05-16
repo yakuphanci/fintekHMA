@@ -29,7 +29,9 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BakiyeIslem));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_onayBekleyenIslemler = new System.Windows.Forms.Button();
             this.button_islemGecmisi = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button_hizliIslem_5000 = new System.Windows.Forms.Button();
@@ -41,7 +43,6 @@ namespace taslakOdev
             this.button_cekmeIslemi = new System.Windows.Forms.Button();
             this.textBox_bakiyeIslemMiktari = new System.Windows.Forms.TextBox();
             this.button_esklemeIslemi = new System.Windows.Forms.Button();
-            this.button_onayBekleyenIslemler = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,20 @@ namespace taslakOdev
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 332);
             this.panel1.TabIndex = 0;
+            // 
+            // button_onayBekleyenIslemler
+            // 
+            this.button_onayBekleyenIslemler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.button_onayBekleyenIslemler.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_onayBekleyenIslemler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_onayBekleyenIslemler.Location = new System.Drawing.Point(20, 286);
+            this.button_onayBekleyenIslemler.Margin = new System.Windows.Forms.Padding(4);
+            this.button_onayBekleyenIslemler.Name = "button_onayBekleyenIslemler";
+            this.button_onayBekleyenIslemler.Size = new System.Drawing.Size(190, 32);
+            this.button_onayBekleyenIslemler.TabIndex = 10;
+            this.button_onayBekleyenIslemler.Text = "Onay Bekleyen İşlemler";
+            this.button_onayBekleyenIslemler.UseVisualStyleBackColor = false;
+            this.button_onayBekleyenIslemler.Click += new System.EventHandler(this.button_onayBekleyenIslemler_Click);
             // 
             // button_islemGecmisi
             // 
@@ -218,20 +233,6 @@ namespace taslakOdev
             this.button_esklemeIslemi.UseVisualStyleBackColor = false;
             this.button_esklemeIslemi.Click += new System.EventHandler(this.button_esklemeIslemi_Click);
             // 
-            // button_onayBekleyenIslemler
-            // 
-            this.button_onayBekleyenIslemler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.button_onayBekleyenIslemler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_onayBekleyenIslemler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_onayBekleyenIslemler.Location = new System.Drawing.Point(20, 286);
-            this.button_onayBekleyenIslemler.Margin = new System.Windows.Forms.Padding(4);
-            this.button_onayBekleyenIslemler.Name = "button_onayBekleyenIslemler";
-            this.button_onayBekleyenIslemler.Size = new System.Drawing.Size(190, 32);
-            this.button_onayBekleyenIslemler.TabIndex = 10;
-            this.button_onayBekleyenIslemler.Text = "Onay Bekleyen İşlemler";
-            this.button_onayBekleyenIslemler.UseVisualStyleBackColor = false;
-            this.button_onayBekleyenIslemler.Click += new System.EventHandler(this.button_onayBekleyenIslemler_Click);
-            // 
             // Form_BakiyeIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -242,6 +243,7 @@ namespace taslakOdev
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_BakiyeIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

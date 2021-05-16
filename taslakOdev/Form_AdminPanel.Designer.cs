@@ -29,6 +29,7 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_AdminPanel));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_bekleyenUrunler = new System.Windows.Forms.TabPage();
             this.groupBox_onayBekleyenUrunler = new System.Windows.Forms.GroupBox();
@@ -50,6 +51,10 @@ namespace taslakOdev
             this.groupBox_onayBekleyenBakiyeler = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_bekleyenIslemler = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_bakiyeIslem = new System.Windows.Forms.Panel();
+            this.label_bakiyeIslemTalepNumValue = new System.Windows.Forms.Label();
+            this.label_bakiyeIslemTalepNumTittle = new System.Windows.Forms.Label();
+            this.label_bakiyeIslemTalepEdenValue = new System.Windows.Forms.Label();
+            this.label_bakiyeIslemTalepEdenTittle = new System.Windows.Forms.Label();
             this.label_tarihAyrac = new System.Windows.Forms.Label();
             this.label_gerceklesmeTarihiTittle = new System.Windows.Forms.Label();
             this.label_gerceklesmeTarihiValue = new System.Windows.Forms.Label();
@@ -58,6 +63,8 @@ namespace taslakOdev
             this.label_islemAciklama = new System.Windows.Forms.Label();
             this.label_islemTarihiValue = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -69,12 +76,6 @@ namespace taslakOdev
             this.hesapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guvenliCikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label_bakiyeIslemTalepEdenTittle = new System.Windows.Forms.Label();
-            this.label_bakiyeIslemTalepEdenValue = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label_bakiyeIslemTalepNumValue = new System.Windows.Forms.Label();
-            this.label_bakiyeIslemTalepNumTittle = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage_bekleyenUrunler.SuspendLayout();
             this.groupBox_onayBekleyenUrunler.SuspendLayout();
@@ -115,6 +116,7 @@ namespace taslakOdev
             // 
             // groupBox_onayBekleyenUrunler
             // 
+            this.groupBox_onayBekleyenUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.groupBox_onayBekleyenUrunler.Controls.Add(this.flowLayoutPanel_bekleyenUrunler);
             this.groupBox_onayBekleyenUrunler.Location = new System.Drawing.Point(37, 3);
             this.groupBox_onayBekleyenUrunler.Name = "groupBox_onayBekleyenUrunler";
@@ -332,6 +334,46 @@ namespace taslakOdev
             this.panel_bakiyeIslem.Size = new System.Drawing.Size(355, 100);
             this.panel_bakiyeIslem.TabIndex = 0;
             // 
+            // label_bakiyeIslemTalepNumValue
+            // 
+            this.label_bakiyeIslemTalepNumValue.AutoSize = true;
+            this.label_bakiyeIslemTalepNumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label_bakiyeIslemTalepNumValue.Location = new System.Drawing.Point(74, 65);
+            this.label_bakiyeIslemTalepNumValue.Name = "label_bakiyeIslemTalepNumValue";
+            this.label_bakiyeIslemTalepNumValue.Size = new System.Drawing.Size(28, 13);
+            this.label_bakiyeIslemTalepNumValue.TabIndex = 11;
+            this.label_bakiyeIslemTalepNumValue.Text = "803";
+            // 
+            // label_bakiyeIslemTalepNumTittle
+            // 
+            this.label_bakiyeIslemTalepNumTittle.AutoSize = true;
+            this.label_bakiyeIslemTalepNumTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_bakiyeIslemTalepNumTittle.Location = new System.Drawing.Point(12, 65);
+            this.label_bakiyeIslemTalepNumTittle.Name = "label_bakiyeIslemTalepNumTittle";
+            this.label_bakiyeIslemTalepNumTittle.Size = new System.Drawing.Size(62, 13);
+            this.label_bakiyeIslemTalepNumTittle.TabIndex = 10;
+            this.label_bakiyeIslemTalepNumTittle.Text = "Talep Num:";
+            // 
+            // label_bakiyeIslemTalepEdenValue
+            // 
+            this.label_bakiyeIslemTalepEdenValue.AutoSize = true;
+            this.label_bakiyeIslemTalepEdenValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label_bakiyeIslemTalepEdenValue.Location = new System.Drawing.Point(74, 80);
+            this.label_bakiyeIslemTalepEdenValue.Name = "label_bakiyeIslemTalepEdenValue";
+            this.label_bakiyeIslemTalepEdenValue.Size = new System.Drawing.Size(58, 13);
+            this.label_bakiyeIslemTalepEdenValue.TabIndex = 9;
+            this.label_bakiyeIslemTalepEdenValue.Text = "ciguli_57";
+            // 
+            // label_bakiyeIslemTalepEdenTittle
+            // 
+            this.label_bakiyeIslemTalepEdenTittle.AutoSize = true;
+            this.label_bakiyeIslemTalepEdenTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_bakiyeIslemTalepEdenTittle.Location = new System.Drawing.Point(12, 80);
+            this.label_bakiyeIslemTalepEdenTittle.Name = "label_bakiyeIslemTalepEdenTittle";
+            this.label_bakiyeIslemTalepEdenTittle.Size = new System.Drawing.Size(65, 13);
+            this.label_bakiyeIslemTalepEdenTittle.TabIndex = 8;
+            this.label_bakiyeIslemTalepEdenTittle.Text = "Talep Eden:";
+            // 
             // label_tarihAyrac
             // 
             this.label_tarihAyrac.AutoSize = true;
@@ -419,6 +461,26 @@ namespace taslakOdev
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(355, 100);
             this.panel4.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(74, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "eminborandag";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label9.Location = new System.Drawing.Point(12, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Talep Eden:";
             // 
             // label15
             // 
@@ -534,66 +596,6 @@ namespace taslakOdev
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // label_bakiyeIslemTalepEdenTittle
-            // 
-            this.label_bakiyeIslemTalepEdenTittle.AutoSize = true;
-            this.label_bakiyeIslemTalepEdenTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label_bakiyeIslemTalepEdenTittle.Location = new System.Drawing.Point(12, 80);
-            this.label_bakiyeIslemTalepEdenTittle.Name = "label_bakiyeIslemTalepEdenTittle";
-            this.label_bakiyeIslemTalepEdenTittle.Size = new System.Drawing.Size(65, 13);
-            this.label_bakiyeIslemTalepEdenTittle.TabIndex = 8;
-            this.label_bakiyeIslemTalepEdenTittle.Text = "Talep Eden:";
-            // 
-            // label_bakiyeIslemTalepEdenValue
-            // 
-            this.label_bakiyeIslemTalepEdenValue.AutoSize = true;
-            this.label_bakiyeIslemTalepEdenValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label_bakiyeIslemTalepEdenValue.Location = new System.Drawing.Point(74, 80);
-            this.label_bakiyeIslemTalepEdenValue.Name = "label_bakiyeIslemTalepEdenValue";
-            this.label_bakiyeIslemTalepEdenValue.Size = new System.Drawing.Size(58, 13);
-            this.label_bakiyeIslemTalepEdenValue.TabIndex = 9;
-            this.label_bakiyeIslemTalepEdenValue.Text = "ciguli_57";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(74, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "eminborandag";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label9.Location = new System.Drawing.Point(12, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Talep Eden:";
-            // 
-            // label_bakiyeIslemTalepNumValue
-            // 
-            this.label_bakiyeIslemTalepNumValue.AutoSize = true;
-            this.label_bakiyeIslemTalepNumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label_bakiyeIslemTalepNumValue.Location = new System.Drawing.Point(74, 65);
-            this.label_bakiyeIslemTalepNumValue.Name = "label_bakiyeIslemTalepNumValue";
-            this.label_bakiyeIslemTalepNumValue.Size = new System.Drawing.Size(28, 13);
-            this.label_bakiyeIslemTalepNumValue.TabIndex = 11;
-            this.label_bakiyeIslemTalepNumValue.Text = "803";
-            // 
-            // label_bakiyeIslemTalepNumTittle
-            // 
-            this.label_bakiyeIslemTalepNumTittle.AutoSize = true;
-            this.label_bakiyeIslemTalepNumTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label_bakiyeIslemTalepNumTittle.Location = new System.Drawing.Point(12, 65);
-            this.label_bakiyeIslemTalepNumTittle.Name = "label_bakiyeIslemTalepNumTittle";
-            this.label_bakiyeIslemTalepNumTittle.Size = new System.Drawing.Size(62, 13);
-            this.label_bakiyeIslemTalepNumTittle.TabIndex = 10;
-            this.label_bakiyeIslemTalepNumTittle.Text = "Talep Num:";
-            // 
             // Form_AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -604,11 +606,12 @@ namespace taslakOdev
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(660, 560);
             this.Name = "Form_AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_AdminPanel";
+            this.Text = "Yönetim Paneli";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AdminPanel_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage_bekleyenUrunler.ResumeLayout(false);

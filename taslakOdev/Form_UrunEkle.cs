@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace taslakOdev
@@ -18,6 +11,7 @@ namespace taslakOdev
         {
             InitializeComponent();
             this.g_kullaniciAdi = kullaniciAdi;
+            KategoriDoldur();
         }
         #endregion
 
@@ -29,21 +23,15 @@ namespace taslakOdev
         void KategoriDoldur()
         {
             comboBox_kategoriler.Items.Clear();
-            string json_urunler = JsonController.GetJsonFromFile(@"urunler.json");
-            var urunler = JsonController.GetDataFromJSON<List<Urun>>(json_urunler);
+            //Ekleneblable ürünler çekildi.
+            var urunler = Veriler.GetUrunTurleri();
 
             foreach (var urun in urunler)
             {
-                comboBox_kategoriler.Items.Add(urun.urunAdi + " - " + urun.urunID);
+                comboBox_kategoriler.Items.Add(urun.Adi + " - " + urun.ID);
             }
         }
-        /// <summary>
-        /// Form'un açılışında comboBoxu doldurma islemi baslatilir
-        /// </summary>
-        private void Form_UrunEkle_Load(object sender, EventArgs e)
-        {
-            KategoriDoldur();
-        }
+
         #endregion
 
 
@@ -56,8 +44,8 @@ namespace taslakOdev
                 var seciliCmbItem = comboBox_kategoriler.SelectedItem.ToString();
                 var splitCmbItem = seciliCmbItem.Split(' ');
 
-                seciliUrun.urunAdi = splitCmbItem[0];
-                seciliUrun.urunID = Int32.Parse(splitCmbItem[2]);
+                seciliUrun.Adi = splitCmbItem[0];
+                seciliUrun.ID = UInt32.Parse(splitCmbItem[2]);
                 return true;
             }
             else
@@ -91,30 +79,35 @@ namespace taslakOdev
         #endregion
 
 
+        #region Yeni Pazar olusturma islemi
+        SatilanUrun GetNewSatilanUrun(Urun _urun, int _miktar, double _fiyat)
+        {
+            SatilanUrun yeniSatilanUrun = new SatilanUrun();
+            yeniSatilanUrun.urun = _urun;
+            yeniSatilanUrun.miktar = _miktar;
+            yeniSatilanUrun.fiyat = _fiyat;
+
+            yeniSatilanUrun.saticiID = this.g_kullaniciAdi;
+            yeniSatilanUrun.tarih = DateTime.Now;
+            yeniSatilanUrun.pazarID = BenzersizIDOlusturucu.GetPazarID(); //Benzersiz bir ID verir
+            return yeniSatilanUrun;
+        }
+        #endregion
+
+        
         #region Urun Ekleme islemi
         bool UrunEkle(Urun _urun, int _miktar, double _fiyat )
         {
             bool eklendiMi = false;
             try
             {
-                string json_kayitliSatilanUrunler = JsonController.GetJsonFromFile(@"SatilanUrunler.json");
-                var kayitliSatilanUrunler = JsonController.GetDataFromJSON<List<SatilanUrun>>(json_kayitliSatilanUrunler);
-
-                #region Yeni Pazar olusturma islemi
+                var kayitliSatilanUrunler = Veriler.GetSatilanUrunler();
+              
                 ///yeni pazar urunu olusturma islemi
-                SatilanUrun yeniSatilanUrun = new SatilanUrun();
-                yeniSatilanUrun.urun = _urun;
-                yeniSatilanUrun.miktar = _miktar;
-                yeniSatilanUrun.fiyat = _fiyat;
-
-                yeniSatilanUrun.saticiID = this.g_kullaniciAdi;
-                yeniSatilanUrun.tarih = DateTime.Now;
-                yeniSatilanUrun.OlusturPazarID(); //Benzersiz bir ID verir
-                #endregion
-
-                kayitliSatilanUrunler.Add(yeniSatilanUrun);
-         
-                JsonController.SaveJsonToFile(@"SatilanUrunler.json", kayitliSatilanUrunler);
+                var yeniSatilanUrun = GetNewSatilanUrun(_urun, _miktar, _fiyat);
+                kayitliSatilanUrunler.Add(yeniSatilanUrun);  
+               
+                Veriler.SaveData(kayitliSatilanUrunler);
                 eklendiMi = true;
             }
             catch (Exception exc)
@@ -132,6 +125,7 @@ namespace taslakOdev
         #region Urun Ekleme Onaylama Tiklama Islemi
         private void button_onayla_Click(object sender, EventArgs e)
         {
+
             double giriliFiyat;
             Urun seciliUrun = null;
             int giriliMiktar = (int)(numericUpDown_miktar.Value);
@@ -141,11 +135,12 @@ namespace taslakOdev
                 if (eklendiMi)
                 {
                     //Ürün eklendiyse başarılı mesajı ver. Ve pencereyi kapat.
-                    Mesajlar.Basarili();
+                    Mesajlar.BilgiMesaji("Yeni ürün satışı talebiniz sisteme iletilmiştir.","Talebiniz İletildi.");
                     this.Close();
                 }
 
              }
+
         }
         #endregion
 

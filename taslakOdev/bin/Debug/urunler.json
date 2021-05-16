@@ -1,35 +1,35 @@
 [
     {
-        "urunID": 1,
-        "urunAdi": "Patates"
+        "ID": 1,
+        "Adi": "Patates"
     },
     {
-        "urunID": 2,
-        "urunAdi": "Soğan"
+        "ID": 2,
+        "Adi": "Soğan"
     },
     {
-        "urunID": 3,
-        "urunAdi": "Domates"
+        "ID": 3,
+        "Adi": "Domates"
     },
     {
-        "urunID": 4,
-        "urunAdi": "Buğday"
+        "ID": 4,
+        "Adi": "Buğday"
     },
     {
-        "urunID": 5,
-        "urunAdi": "Arpa"
+        "ID": 5,
+        "Adi": "Arpa"
     },
     {
-        "urunID": 6,
-        "urunAdi": "Yulaf"
+        "ID": 6,
+        "Adi": "Yulaf"
     },
     {
-        "urunID": 7,
-        "urunAdi": "Pamuk"
+        "ID": 7,
+        "Adi": "Pamuk"
     },
     {
-        "urunID": 8,
-        "urunAdi": "Biber"
+        "ID": 8,
+        "Adi": "Biber"
     }
 
 ]

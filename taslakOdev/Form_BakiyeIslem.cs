@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace taslakOdev
@@ -30,18 +23,7 @@ namespace taslakOdev
         }
         #endregion
 
-      
-        /// <summary>
-        /// Bakiye İşlemlerinin tutulduğu dosyadan bakiye işlemlerini çeker.
-        /// </summary>
-        /// <returns>Bir BakiyeKontrol türünde liste döndürür.</returns>
-        List<BakiyeIslemObject> GetBakiyeIslemlerFromFile()
-        {
-            var json_bakiyeIslemler = JsonController.GetJsonFromFile(@"bakiyeIslemler.json");
-            var bakiyeIslemler = JsonController.GetDataFromJSON<List<BakiyeIslemObject>>(json_bakiyeIslemler);
-
-            return bakiyeIslemler;
-        }
+ 
 
 
         /// <summary>
@@ -69,12 +51,11 @@ namespace taslakOdev
         /// </summary>
         void Save_yeniBakiyeIslemi(double miktar, short islem)
         {
-            var bakiyeIslemler = GetBakiyeIslemlerFromFile();
+            var bakiyeIslemler = Veriler.GetBakiyeIslemleri();
             var yeniBakiyeIslem = GetNewBakiyeKontrol(miktar, islem);
 
             bakiyeIslemler.Add(yeniBakiyeIslem);
-
-            JsonController.SaveJsonToFile(@"bakiyeIslemler.json", bakiyeIslemler);
+            Veriler.SaveData(bakiyeIslemler);
         }
 
       

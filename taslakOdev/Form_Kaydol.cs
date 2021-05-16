@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -63,14 +55,12 @@ namespace taslakOdev
         }
 
         ///Kullanıcı adının kayıtlarda olup olmadıgına bakar.
-        private bool checkUserNickName(List<Kullanici> kullanicilar, Kullanici yeniKullanici)
+        private bool checkUserNickName( Kullanici yeniKullanici)
         {
             //Daha önceden kullanıcı adı ile kaydolup olunmadığını kontrol ediyor.
-            var eslesenKullanicilar = (from k in kullanicilar
-                                       where k.KullaniciAdi == yeniKullanici.KullaniciAdi
-                                       select k).ToList();
+            var eslesenKullanici = Veriler.GetKullanici(yeniKullanici.KullaniciAdi);
 
-            bool evveldenVarmi = (eslesenKullanicilar.Count > 0);
+            bool evveldenVarmi = (eslesenKullanici != null);
             return evveldenVarmi;
         }
         #endregion
@@ -95,7 +85,6 @@ namespace taslakOdev
         }
         #endregion
 
-
  
         #region Kayıt Tamamla İslemi
         ///Kayıt tamamla işlemini yapan buton.
@@ -104,8 +93,8 @@ namespace taslakOdev
             if( valid_KayitTamamla() )
             {
                 //Veriler okunur kullanici listesi oluşturulur.
-                var json_kullanicilar = JsonController.GetJsonFromFile(@"kullanicilar.json");
-                var kullanicilar = JsonController.GetDataFromJSON<List<Kullanici>>(json_kullanicilar);
+
+                var kullanicilar = Veriler.GetKullanicilar();
 
                 //TextBoxdaki verilerle yeni bir kullanıcı nesnesi oluşturur.
                 var yeniKullanici = CreateNewKullanici();
@@ -113,7 +102,7 @@ namespace taslakOdev
 
                 //TextBoxdaki verilerden yeni bir kullanıcı oluşturuldugunda
                 //bu kullanıcının daha önceden kayıtlı olup olmadıgını kontrol eder.
-                bool evveldenVarmi = checkUserNickName(kullanicilar, yeniKullanici);
+                bool evveldenVarmi = checkUserNickName(yeniKullanici);
                 if ( !evveldenVarmi )
                 {
                     kullanicilar.Add(yeniKullanici);
@@ -135,7 +124,7 @@ namespace taslakOdev
                 }
 
                 //güncellenen kullanıcı listesi dosyaya kaydedilir.
-                JsonController.SaveJsonToFile(@"kullanicilar.json", kullanicilar);
+                Veriler.SaveData(kullanicilar);
 
             }
 
@@ -180,9 +169,10 @@ namespace taslakOdev
                 button_kayitTamamla.Enabled = false;
             }
         }
+
         #endregion
 
-
+     
     }
 
 

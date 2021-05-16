@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace taslakOdev
@@ -33,7 +26,7 @@ namespace taslakOdev
         #region Kaydolma Ekranina yonlendirme
         private void button_kayitOl_Click(object sender, EventArgs e)
         {
-            Form_KayıtOl frm_kaydol = new Form_KayıtOl();
+            Form_Kaydol frm_kaydol = new Form_Kaydol();
             frm_kaydol.ShowDialog();
             
         }

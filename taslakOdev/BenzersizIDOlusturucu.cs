@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace taslakOdev
+﻿namespace taslakOdev
 {
+    //Benzerisz ID'leri tutar. 
     public class IDTutucu
     {
         public uint pazarID;
@@ -15,25 +10,27 @@ namespace taslakOdev
 
     public static class BenzersizIDOlusturucu
     {
+        //Benzersiz ID'leri tuttugu dosyadan en son kullandıgı id'yi çeker 
+        //ve bir sonraki numarayı verir. Kendini güncelleyip kaydeder.
         public static uint GetPazarID()
         {
-            var idTutucu = JsonController.GetDataFromJSON<IDTutucu>(JsonController.GetJsonFromFile(@"benzersizIDler.json"));
+            var idTutucu = Veriler.GetBenzersizIDTutucu();
             idTutucu.pazarID++;
-            JsonController.SaveJsonToFile(@"benzersizIDler.json", idTutucu);
+            Veriler.SaveData(idTutucu);
             return idTutucu.pazarID;
         }
         public static uint GetUrunID()
         {
-            var idTutucu = JsonController.GetDataFromJSON<IDTutucu>(JsonController.GetJsonFromFile(@"benzersizIDler.json"));
+            var idTutucu = Veriler.GetBenzersizIDTutucu();
             idTutucu.urunID++;
-            JsonController.SaveJsonToFile(@"benzersizIDler.json", idTutucu);
+            Veriler.SaveData(idTutucu);
             return idTutucu.urunID;
         }
         public static uint GetBakiyeIslemID()
         {
-            var idTutucu = JsonController.GetDataFromJSON<IDTutucu>(JsonController.GetJsonFromFile(@"benzersizIDler.json"));
+            var idTutucu = Veriler.GetBenzersizIDTutucu();
             idTutucu.bakiyeIslemID++;
-            JsonController.SaveJsonToFile(@"benzersizIDler.json", idTutucu);
+            Veriler.SaveData(idTutucu);
             return idTutucu.bakiyeIslemID;
         }
 

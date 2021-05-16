@@ -32,8 +32,9 @@ namespace taslakOdev
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Uygulama));
             this.panel_menu = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_bakiyeIslemleri = new System.Windows.Forms.Button();
             this.button_kullaniciPazari = new System.Windows.Forms.Button();
             this.label_bakiye = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -62,7 +63,7 @@ namespace taslakOdev
             // 
             // panel_menu
             // 
-            this.panel_menu.Controls.Add(this.button1);
+            this.panel_menu.Controls.Add(this.button_bakiyeIslemleri);
             this.panel_menu.Controls.Add(this.button_kullaniciPazari);
             this.panel_menu.Controls.Add(this.label_bakiye);
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -71,19 +72,19 @@ namespace taslakOdev
             this.panel_menu.Size = new System.Drawing.Size(707, 40);
             this.panel_menu.TabIndex = 1;
             // 
-            // button1
+            // button_bakiyeIslemleri
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(208, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 34);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Bakiye İşlemleri";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button_bakiyeIslemleri_Click);
+            this.button_bakiyeIslemleri.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_bakiyeIslemleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.button_bakiyeIslemleri.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_bakiyeIslemleri.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_bakiyeIslemleri.Location = new System.Drawing.Point(208, 3);
+            this.button_bakiyeIslemleri.Name = "button_bakiyeIslemleri";
+            this.button_bakiyeIslemleri.Size = new System.Drawing.Size(124, 34);
+            this.button_bakiyeIslemleri.TabIndex = 7;
+            this.button_bakiyeIslemleri.Text = "Bakiye İşlemleri";
+            this.button_bakiyeIslemleri.UseVisualStyleBackColor = false;
+            this.button_bakiyeIslemleri.Click += new System.EventHandler(this.button_bakiyeIslemleri_Click);
             // 
             // button_kullaniciPazari
             // 
@@ -95,7 +96,7 @@ namespace taslakOdev
             this.button_kullaniciPazari.Name = "button_kullaniciPazari";
             this.button_kullaniciPazari.Size = new System.Drawing.Size(162, 34);
             this.button_kullaniciPazari.TabIndex = 6;
-            this.button_kullaniciPazari.Text = "Sahip Olduklarım ve Profilim";
+            this.button_kullaniciPazari.Text = "Sahip Olduğum Pazarlar";
             this.button_kullaniciPazari.UseVisualStyleBackColor = false;
             this.button_kullaniciPazari.Click += new System.EventHandler(this.button_kullaniciPazari_Click);
             // 
@@ -113,6 +114,7 @@ namespace taslakOdev
             this.label_bakiye.TabIndex = 0;
             this.label_bakiye.Text = "650 ₺";
             this.toolTip1.SetToolTip(this.label_bakiye, "Bakiye yüklemek için tıklayınız.");
+            this.label_bakiye.Click += new System.EventHandler(this.button_bakiyeIslemleri_Click);
             // 
             // toolTip1
             // 
@@ -296,11 +298,12 @@ namespace taslakOdev
             this.Controls.Add(this.panel_menu);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(677, 650);
             this.Name = "Form_Uygulama";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Uygulama";
+            this.Text = "HMA Tarımsal Borsa Uygulaması";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Uygulama_FormClosing);
             this.panel_menu.ResumeLayout(false);
             this.panel_menu.PerformLayout();
@@ -336,6 +339,6 @@ namespace taslakOdev
         private Label label4;
         private Label label5;
         private PictureBox pictureBox2;
-        private Button button1;
+        private Button button_bakiyeIslemleri;
     }
 }

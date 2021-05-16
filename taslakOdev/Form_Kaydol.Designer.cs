@@ -29,6 +29,7 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Kaydol));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel_kayitSecond = new System.Windows.Forms.Panel();
             this.textBox_tckNo = new System.Windows.Forms.MaskedTextBox();
@@ -335,7 +336,7 @@ namespace taslakOdev
             this.textBox_kullaniciAdi.TabIndex = 0;
             this.textBox_kullaniciAdi.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity_First);
             // 
-            // Form_KayıtOl
+            // Form_Kaydol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -344,7 +345,8 @@ namespace taslakOdev
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form_KayıtOl";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Form_Kaydol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kayıt Ol";
             this.groupBox1.ResumeLayout(false);

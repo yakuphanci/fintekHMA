@@ -29,7 +29,8 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_UrunPazar));
+            this.flowLayoutPanel_pazarlar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_urun = new System.Windows.Forms.Panel();
             this.label_tarihValue = new System.Windows.Forms.Label();
             this.label_tarihTittle = new System.Windows.Forms.Label();
@@ -41,22 +42,22 @@ namespace taslakOdev
             this.label_miktarTittle = new System.Windows.Forms.Label();
             this.label_urunAdi = new System.Windows.Forms.Label();
             this.pictureBox_urunResim = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel_pazarlar.SuspendLayout();
             this.panel_urun.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_urunResim)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel_pazarlar
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.flowLayoutPanel1.Controls.Add(this.panel_urun);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(100, 12);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(570, 587);
-            this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel_pazarlar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanel_pazarlar.AutoScroll = true;
+            this.flowLayoutPanel_pazarlar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.flowLayoutPanel_pazarlar.Controls.Add(this.panel_urun);
+            this.flowLayoutPanel_pazarlar.Location = new System.Drawing.Point(100, 12);
+            this.flowLayoutPanel_pazarlar.Name = "flowLayoutPanel_pazarlar";
+            this.flowLayoutPanel_pazarlar.Padding = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel_pazarlar.Size = new System.Drawing.Size(570, 587);
+            this.flowLayoutPanel_pazarlar.TabIndex = 4;
             // 
             // panel_urun
             // 
@@ -184,13 +185,14 @@ namespace taslakOdev
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.ClientSize = new System.Drawing.Size(765, 611);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel_pazarlar);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(677, 650);
             this.Name = "Form_UrunPazar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_UrunPazar";
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.Text = "Aktif [urun adı] Pazarları";
+            this.flowLayoutPanel_pazarlar.ResumeLayout(false);
             this.panel_urun.ResumeLayout(false);
             this.panel_urun.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_urunResim)).EndInit();
@@ -200,7 +202,7 @@ namespace taslakOdev
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_pazarlar;
         private System.Windows.Forms.Panel panel_urun;
         private System.Windows.Forms.Label label_saticiValue;
         private System.Windows.Forms.Label label_saticiTittle;

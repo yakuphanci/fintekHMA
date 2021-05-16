@@ -29,6 +29,7 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Giris));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_parola = new System.Windows.Forms.TextBox();
             this.button_giris = new System.Windows.Forms.Button();
@@ -109,6 +110,7 @@ namespace taslakOdev
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_Giris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

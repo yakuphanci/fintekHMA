@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Profil));
             this.panel_menu = new System.Windows.Forms.Panel();
             this.button_bakiyeIslemleri = new System.Windows.Forms.Button();
             this.button_urunEkle = new System.Windows.Forms.Button();
@@ -133,7 +134,7 @@
             // 
             // button_yenile
             // 
-            this.button_yenile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_yenile.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button_yenile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.button_yenile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_yenile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -162,6 +163,7 @@
             // 
             this.flowLayoutPanel_beklemedekiUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanel_beklemedekiUrunler.AutoScroll = true;
+            this.flowLayoutPanel_beklemedekiUrunler.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel_beklemedekiUrunler.Controls.Add(this.panel1);
             this.flowLayoutPanel_beklemedekiUrunler.Location = new System.Drawing.Point(2, 9);
             this.flowLayoutPanel_beklemedekiUrunler.Name = "flowLayoutPanel_beklemedekiUrunler";
@@ -330,6 +332,7 @@
             // 
             this.flowLayoutPanel_yayindakiUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanel_yayindakiUrunler.AutoScroll = true;
+            this.flowLayoutPanel_yayindakiUrunler.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel_yayindakiUrunler.Controls.Add(this.panel_urun);
             this.flowLayoutPanel_yayindakiUrunler.Location = new System.Drawing.Point(2, 9);
             this.flowLayoutPanel_yayindakiUrunler.Name = "flowLayoutPanel_yayindakiUrunler";
@@ -440,7 +443,7 @@
             this.button_satistakiUrunler.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button_satistakiUrunler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.button_satistakiUrunler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_satistakiUrunler.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_satistakiUrunler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_satistakiUrunler.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.button_satistakiUrunler.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_satistakiUrunler.Location = new System.Drawing.Point(41, 65);
@@ -506,12 +509,13 @@
             this.Controls.Add(this.panel_menu);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(678, 39);
             this.Name = "Form_Profil";
             this.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_Profil";
+            this.Text = "Sahip Olduğum Pazarlar";
             this.panel_menu.ResumeLayout(false);
             this.panel_menu.PerformLayout();
             this.groupBox.ResumeLayout(false);

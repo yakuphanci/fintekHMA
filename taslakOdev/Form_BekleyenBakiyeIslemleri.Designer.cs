@@ -29,6 +29,7 @@ namespace taslakOdev
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BekleyenBakiyeIslemleri));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_bekleyenIslemler = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_bakiyeIslem = new System.Windows.Forms.Panel();
@@ -258,10 +259,11 @@ namespace taslakOdev
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_BekleyenBakiyeIslemleri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_BekleyenBakiyeIslemleri";
+            this.Text = "Bakiye İşlem Talepleri";
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel_bekleyenIslemler.ResumeLayout(false);
             this.panel_bakiyeIslem.ResumeLayout(false);
