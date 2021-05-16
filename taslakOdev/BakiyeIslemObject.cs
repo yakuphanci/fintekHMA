@@ -14,6 +14,11 @@ namespace taslakOdev
             public static string yetersizBakiye { get { return "Yetersiz Bakiye."; } }
 
         }
+        public static class stdAciklama 
+        {
+            public static string Ekleme { get { return "Bakiye Ekleme İşlemi"; } }
+            public static string Cekme { get { return "Bakiyeden Çekme İşlemi"; } }
+        };
     }
 
     public class BakiyeIslemObject

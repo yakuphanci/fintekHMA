@@ -40,7 +40,7 @@ namespace taslakOdev
             yeniBakiyeIslem.ID = BenzersizIDOlusturucu.GetBakiyeIslemID();
             yeniBakiyeIslem.kullaniciAdi = this.g_aktifKullanici.KullaniciAdi;
             yeniBakiyeIslem.islemTarihi = DateTime.Now;
-            yeniBakiyeIslem.aciklama = (islem == +1) ? "Bakiye Ekleme İşlemi" : "Bakiyeden Çekme İşlemi";
+            yeniBakiyeIslem.aciklama = (islem == +1) ? BakiyeIslemStatics.stdAciklama.Ekleme : BakiyeIslemStatics.stdAciklama.Cekme;
             yeniBakiyeIslem.degisiklikMiktari = (miktar * islem);
             return yeniBakiyeIslem;
         }
