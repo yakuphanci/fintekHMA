@@ -26,6 +26,7 @@ namespace taslakOdev
             if(girisKullanici != null && girisKullanici.Parola == textBox_parola.Text)
             {
                 g_frm_main.Hide();
+                this.Hide();
                 this.Close();
                 #region Adminse..
                 if (girisKullanici.yetki == Yetki.Admin)
@@ -41,6 +42,8 @@ namespace taslakOdev
                     frm_uygulama.Show();
                 }
                 #endregion
+
+                
             }
             else
                 Mesajlar.UyariMesaji(

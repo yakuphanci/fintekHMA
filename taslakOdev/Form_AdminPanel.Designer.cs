@@ -610,7 +610,7 @@ namespace taslakOdev
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(660, 560);
             this.Name = "Form_AdminPanel";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yönetim Paneli";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_AdminPanel_FormClosing);
             this.tabControl1.ResumeLayout(false);

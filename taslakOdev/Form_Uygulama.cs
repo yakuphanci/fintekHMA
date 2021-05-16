@@ -85,6 +85,7 @@ namespace taslakOdev
 
             //satışa açılmış ürünler kategorilerine göre gruplandı.
             var kategorilenmisSatilanUrunler = from su in onayliSatilanUrunler
+                                               orderby su.urun.Adi ascending
                                                group su by su.urun.ID;
 
 
@@ -202,9 +203,18 @@ namespace taslakOdev
             this.Close();
         }
 
+
         #endregion
 
-       
+
+        #region Alis Emri Butonu Tıklama Olayı.
+        private void button_alisEmri_Click(object sender, EventArgs e)
+        {
+            Form_AlisEmri frm_alisEmri = new Form_AlisEmri(this.g_aktifKullanici);
+            frm_alisEmri.ShowDialog();
+        }
+        #endregion
+
     }
 
 

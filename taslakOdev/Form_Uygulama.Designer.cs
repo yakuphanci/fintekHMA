@@ -34,6 +34,7 @@ namespace taslakOdev
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Uygulama));
             this.panel_menu = new System.Windows.Forms.Panel();
+            this.button_alisEmri = new System.Windows.Forms.Button();
             this.button_bakiyeIslemleri = new System.Windows.Forms.Button();
             this.button_kullaniciPazari = new System.Windows.Forms.Button();
             this.label_bakiye = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@ namespace taslakOdev
             // 
             // panel_menu
             // 
+            this.panel_menu.Controls.Add(this.button_alisEmri);
             this.panel_menu.Controls.Add(this.button_bakiyeIslemleri);
             this.panel_menu.Controls.Add(this.button_kullaniciPazari);
             this.panel_menu.Controls.Add(this.label_bakiye);
@@ -72,15 +74,29 @@ namespace taslakOdev
             this.panel_menu.Size = new System.Drawing.Size(707, 40);
             this.panel_menu.TabIndex = 1;
             // 
+            // button_alisEmri
+            // 
+            this.button_alisEmri.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_alisEmri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.button_alisEmri.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_alisEmri.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_alisEmri.Location = new System.Drawing.Point(399, 3);
+            this.button_alisEmri.Name = "button_alisEmri";
+            this.button_alisEmri.Size = new System.Drawing.Size(162, 34);
+            this.button_alisEmri.TabIndex = 8;
+            this.button_alisEmri.Text = "Alış Emri";
+            this.button_alisEmri.UseVisualStyleBackColor = false;
+            this.button_alisEmri.Click += new System.EventHandler(this.button_alisEmri_Click);
+            // 
             // button_bakiyeIslemleri
             // 
             this.button_bakiyeIslemleri.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_bakiyeIslemleri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.button_bakiyeIslemleri.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_bakiyeIslemleri.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_bakiyeIslemleri.Location = new System.Drawing.Point(208, 3);
+            this.button_bakiyeIslemleri.Location = new System.Drawing.Point(231, 3);
             this.button_bakiyeIslemleri.Name = "button_bakiyeIslemleri";
-            this.button_bakiyeIslemleri.Size = new System.Drawing.Size(124, 34);
+            this.button_bakiyeIslemleri.Size = new System.Drawing.Size(162, 34);
             this.button_bakiyeIslemleri.TabIndex = 7;
             this.button_bakiyeIslemleri.Text = "Bakiye İşlemleri";
             this.button_bakiyeIslemleri.UseVisualStyleBackColor = false;
@@ -92,7 +108,7 @@ namespace taslakOdev
             this.button_kullaniciPazari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.button_kullaniciPazari.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_kullaniciPazari.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_kullaniciPazari.Location = new System.Drawing.Point(40, 3);
+            this.button_kullaniciPazari.Location = new System.Drawing.Point(63, 3);
             this.button_kullaniciPazari.Name = "button_kullaniciPazari";
             this.button_kullaniciPazari.Size = new System.Drawing.Size(162, 34);
             this.button_kullaniciPazari.TabIndex = 6;
@@ -340,5 +356,6 @@ namespace taslakOdev
         private Label label5;
         private PictureBox pictureBox2;
         private Button button_bakiyeIslemleri;
+        private Button button_alisEmri;
     }
 }

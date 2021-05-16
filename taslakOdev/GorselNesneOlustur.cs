@@ -138,7 +138,63 @@ namespace taslakOdev
                 lbl_islemAciklama.Text = value;
                 return lbl_islemAciklama;
             }
-        
+
+            public static Label TalepEden_Tittle()
+            {
+              
+                // 
+                // label_bakiyeIslemTalepEdenTittle
+                // 
+                Label talepEdenTittle = new Label();
+                talepEdenTittle.AutoSize = true;
+                talepEdenTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+                talepEdenTittle.Location = new System.Drawing.Point(12, 80);
+                talepEdenTittle.Size = new System.Drawing.Size(65, 13);
+                talepEdenTittle.Text = "Talep Eden:";
+                return talepEdenTittle;
+
+            }
+            public static Label TalepEden_Value(string talepEden)
+            {
+                // 
+                // label_bakiyeIslemTalepEdenValue
+                // 
+                Label talepEdenValue = new Label();
+                talepEdenValue.AutoSize = true;
+                talepEdenValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+                talepEdenValue.Location = new System.Drawing.Point(74, 80);
+                talepEdenValue.Size = new System.Drawing.Size(58, 13);
+                talepEdenValue.Text = talepEden;
+                return talepEdenValue;
+            }
+
+            public static Label TalepNum_Tittle()
+            {
+               
+                // 
+                // label_bakiyeIslemTalepNumTittle
+                // 
+                Label talepNumTittle = new Label();
+                talepNumTittle.AutoSize = true;
+                talepNumTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+                talepNumTittle.Location = new System.Drawing.Point(12, 65);
+                talepNumTittle.Size = new System.Drawing.Size(62, 13);
+                talepNumTittle.Text = "Talep Num:";
+                return talepNumTittle;
+            }
+            public static Label TalepNum_Value(uint talepNum)
+            {
+                // 
+                // label_bakiyeIslemTalepNumValue
+                // 
+                Label talepNumValue = new Label();
+                talepNumValue.AutoSize = true;
+                talepNumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+                talepNumValue.Location = new System.Drawing.Point(74, 65);
+                talepNumValue.Size = new System.Drawing.Size(28, 13);
+                talepNumValue.Text = talepNum.ToString();
+                return talepNumValue;
+            }
         }
     
         public class Pazar

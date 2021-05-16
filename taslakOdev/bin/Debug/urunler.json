@@ -30,6 +30,98 @@
     {
         "ID": 8,
         "Adi": "Biber"
+    },
+    {
+        "ID": 9,
+        "Adi": "Kayısı"
+    },
+    {
+        "ID": 10,
+        "Adi": "Tütün"
+    },
+    {
+        "ID": 11,
+        "Adi": "Dondurulmuş-Mantı"
+    },
+    {
+        "ID": 12,
+        "Adi": "Fındık"
+    },
+    {
+        "ID": 13,
+        "Adi": "Mantar"
+    },
+    {
+        "ID": 14,
+        "Adi": "Siyah-Çay"
+    },
+    {
+        "ID": 15,
+        "Adi": "Ayçiçeği"
+    },
+    {
+        "ID": 16,
+        "Adi": "Nohut"
+    },
+    {
+        "ID": 17,
+        "Adi": "Karpuz"
+    },
+    {
+        "ID": 18,
+        "Adi": "Elma"
+    },
+    {
+        "ID": 19,
+        "Adi": "Patlıcan"
+    },
+    {
+        "ID": 20,
+        "Adi": "Portakal"
+    },
+    {
+        "ID": 21,
+        "Adi": "Taze-Fasulye"
+    },
+    {
+        "ID": 22,
+        "Adi": "Koçan-Mısır"
+    },
+    {
+        "ID": 23,
+        "Adi": "Tane-Mısır"
+    },
+    {
+        "ID": 24,
+        "Adi": "Kabak"
+    },
+    {
+        "ID": 25,
+        "Adi": "Pırasa"
+    },
+    {
+        "ID": 26,
+        "Adi": "Kurufasulye"
+    },
+    {
+        "ID": 27,
+        "Adi": "Gül"
+    },
+    {
+        "ID": 28,
+        "Adi": "Mandalina"
+    },
+    {
+        "ID": 29,
+        "Adi": "Hardal"
+    },
+    {
+        "ID": 30,
+        "Adi": "Yumurta"
+    },
+    {
+        "ID": 31,
+        "Adi": "Peynir"
     }
 
 ]

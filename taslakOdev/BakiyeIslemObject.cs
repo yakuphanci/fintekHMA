@@ -16,8 +16,10 @@ namespace taslakOdev
         }
         public static class stdAciklama 
         {
-            public static string Ekleme { get { return "Bakiye Ekleme İşlemi"; } }
-            public static string Cekme { get { return "Bakiyeden Çekme İşlemi"; } }
+            public static string Ekleme { get { return "Bakiye Ekleme İşlemi."; } }
+            public static string Cekme { get { return "Bakiyeden Çekme İşlemi."; } }
+            public static string Alis { get { return "Ürün Alış İşlemi."; } }
+            public static string Satis { get { return "Satış İşlemi."; } }
         };
     }
 

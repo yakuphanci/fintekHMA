@@ -97,7 +97,7 @@ namespace taslakOdev
             this.textBox_kullaniciAdi.Name = "textBox_kullaniciAdi";
             this.textBox_kullaniciAdi.Size = new System.Drawing.Size(315, 24);
             this.textBox_kullaniciAdi.TabIndex = 20;
-            this.textBox_kullaniciAdi.Text = "muro5759";
+            this.textBox_kullaniciAdi.Text = "yakuphanci";
             this.textBox_kullaniciAdi.TextChanged += new System.EventHandler(this.textBoxes_IsAllNotEmpity);
             // 
             // Form_Giris
@@ -109,7 +109,7 @@ namespace taslakOdev
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_Giris";

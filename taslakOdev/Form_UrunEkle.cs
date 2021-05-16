@@ -26,6 +26,7 @@ namespace taslakOdev
             //Ekleneblable ürünler çekildi.
             var urunler = Veriler.GetUrunTurleri();
 
+            comboBox_kategoriler.Items.Clear();
             foreach (var urun in urunler)
             {
                 comboBox_kategoriler.Items.Add(urun.Adi + " - " + urun.ID);

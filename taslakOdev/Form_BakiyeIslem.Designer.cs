@@ -114,7 +114,7 @@ namespace taslakOdev
             this.button_hizliIslem_5000.Name = "button_hizliIslem_5000";
             this.button_hizliIslem_5000.Size = new System.Drawing.Size(84, 32);
             this.button_hizliIslem_5000.TabIndex = 9;
-            this.button_hizliIslem_5000.Tag = "5000";
+            this.button_hizliIslem_5000.Tag = "5000,00";
             this.button_hizliIslem_5000.Text = "5000 ₺";
             this.button_hizliIslem_5000.UseVisualStyleBackColor = false;
             this.button_hizliIslem_5000.Click += new System.EventHandler(this.btn_hizliIslem_Click);
@@ -129,7 +129,7 @@ namespace taslakOdev
             this.button_hizliIslem_1000.Name = "button_hizliIslem_1000";
             this.button_hizliIslem_1000.Size = new System.Drawing.Size(84, 32);
             this.button_hizliIslem_1000.TabIndex = 8;
-            this.button_hizliIslem_1000.Tag = "1000";
+            this.button_hizliIslem_1000.Tag = "1000,00";
             this.button_hizliIslem_1000.Text = "1000 ₺";
             this.button_hizliIslem_1000.UseVisualStyleBackColor = false;
             this.button_hizliIslem_1000.Click += new System.EventHandler(this.btn_hizliIslem_Click);
@@ -144,7 +144,7 @@ namespace taslakOdev
             this.button_hizliIslem_500.Name = "button_hizliIslem_500";
             this.button_hizliIslem_500.Size = new System.Drawing.Size(84, 32);
             this.button_hizliIslem_500.TabIndex = 7;
-            this.button_hizliIslem_500.Tag = "500";
+            this.button_hizliIslem_500.Tag = "500,00";
             this.button_hizliIslem_500.Text = "500 ₺";
             this.button_hizliIslem_500.UseVisualStyleBackColor = false;
             this.button_hizliIslem_500.Click += new System.EventHandler(this.btn_hizliIslem_Click);
@@ -159,7 +159,7 @@ namespace taslakOdev
             this.button_hizliIslem_250.Name = "button_hizliIslem_250";
             this.button_hizliIslem_250.Size = new System.Drawing.Size(84, 32);
             this.button_hizliIslem_250.TabIndex = 6;
-            this.button_hizliIslem_250.Tag = "250";
+            this.button_hizliIslem_250.Tag = "250,00";
             this.button_hizliIslem_250.Text = "250 ₺";
             this.button_hizliIslem_250.UseVisualStyleBackColor = false;
             this.button_hizliIslem_250.Click += new System.EventHandler(this.btn_hizliIslem_Click);
@@ -174,7 +174,7 @@ namespace taslakOdev
             this.button_hizliIslem_100.Name = "button_hizliIslem_100";
             this.button_hizliIslem_100.Size = new System.Drawing.Size(84, 32);
             this.button_hizliIslem_100.TabIndex = 5;
-            this.button_hizliIslem_100.Tag = "100";
+            this.button_hizliIslem_100.Tag = "100,00";
             this.button_hizliIslem_100.Text = "100 ₺";
             this.button_hizliIslem_100.UseVisualStyleBackColor = false;
             this.button_hizliIslem_100.Click += new System.EventHandler(this.btn_hizliIslem_Click);
@@ -189,7 +189,7 @@ namespace taslakOdev
             this.button_hizliIslem_50.Name = "button_hizliIslem_50";
             this.button_hizliIslem_50.Size = new System.Drawing.Size(84, 32);
             this.button_hizliIslem_50.TabIndex = 4;
-            this.button_hizliIslem_50.Tag = "50";
+            this.button_hizliIslem_50.Tag = "50,00";
             this.button_hizliIslem_50.Text = "50 ₺";
             this.button_hizliIslem_50.UseVisualStyleBackColor = false;
             this.button_hizliIslem_50.Click += new System.EventHandler(this.btn_hizliIslem_Click);
@@ -242,7 +242,7 @@ namespace taslakOdev
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_BakiyeIslem";

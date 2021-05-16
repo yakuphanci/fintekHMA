@@ -26,7 +26,7 @@ namespace taslakOdev
             DateTime islemTarihi = islemNesnesi.islemTarihi;
             double miktar = islemNesnesi.degisiklikMiktari;
             string aciklama = islemNesnesi.aciklama;
-
+            uint islemNum = islemNesnesi.ID;
 
             //Container
             Color BGColor = reddedildiMi ? Renkler.BGKirmizi : Renkler.BGVarsayilan;
@@ -39,6 +39,10 @@ namespace taslakOdev
 
             //İşlem Açıklama
             islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.Aciklama(aciklama));
+
+            //İşlem Tarihi
+            islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.IslemTarihi_Tittle());
+            islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.IslemTarihi_Value(islemTarihi));
 
             //İşlem Miktar
             Color FRColor = (miktar < 0) ? Renkler.Kirmizi : Renkler.Yesil;

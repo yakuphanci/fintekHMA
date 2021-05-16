@@ -14,8 +14,9 @@ namespace taslakOdev
             InitializeComponent();
             this.g_kategori = UrunBilgiCek(kategoriID);
             this.g_aktifKullanici = aktifKullanici;
-            this.Text = "Aktif \'" + this.g_kategori.Adi + "\' Pazarları"; 
-            PazarListele();
+            this.Text = "Aktif \"" + this.g_kategori.Adi + "\" Pazarları"; 
+            this.groupBox_pazarlar.Text ="\"" + this.g_kategori.Adi + "\" Pazarları";
+            TumunuYenile();
         }
 
         Urun UrunBilgiCek(uint kategoriID)
@@ -82,9 +83,9 @@ namespace taslakOdev
         //Mevcut kategorideki tüm pazar ürünlerini listeler
         void PazarListele()
         {
+           
             flowLayoutPanel_pazarlar.Controls.Clear();
-
-            var onayliSatilanUrunler = Veriler.GetAktifPazarlar(this.g_kategori.ID);
+            var onayliSatilanUrunler = Veriler.GetUcuzAktifPazarlar(this.g_kategori.ID);
 
             flowLayoutPanel_pazarlar.Controls.Clear();
             foreach (var satilanUrun in onayliSatilanUrunler)
@@ -97,7 +98,66 @@ namespace taslakOdev
 
         }
 
-      
 
+        #region Yenileme Islemi
+        private void KullaniciBilgileriniYenile()
+        {
+            var kullanici = Veriler.GetKullanici(this.g_aktifKullanici.KullaniciAdi);
+            this.g_aktifKullanici = kullanici;
+        }
+
+        void BakiyeYenile()
+        {
+            this.label_bakiye.Text = this.g_aktifKullanici.Bakiye + " ₺";
+        }
+
+        void TumunuYenile()
+        {
+            KullaniciBilgileriniYenile();
+            PazarListele();
+            BakiyeYenile();
+        }
+
+        private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TumunuYenile();
+        }
+        #endregion
+
+        #region Kullanici(Satici)nin kendi urunlerini yonetecegi formu acma islemi
+        /// <summary>
+        /// Kullanicinin (Satici) kendi urunlerini yonetebilecegi FormEkranini acar
+        /// </summary>
+        private void button_kullaniciPazari_Click(object sender, EventArgs e)
+        {
+            Form_Profil frm_profil = new Form_Profil(this.g_aktifKullanici);
+            frm_profil.ShowDialog();
+        }
+        #endregion
+              
+        #region Bakiye Islemleri Butonu Tıklama Olayı.
+        ///<summary>
+        ///Bakiye İşlem penceresini açar.
+        ///</summary>
+        private void button_bakiyeIslemleri_Click(object sender, EventArgs e)
+        {
+            Form_BakiyeIslem frm_bakiyeIslem = new Form_BakiyeIslem(this.g_aktifKullanici);
+            frm_bakiyeIslem.ShowDialog();
+            KullaniciBilgileriniYenile();
+            BakiyeYenile();
+       
+        }
+        #endregion
+
+        #region Alis Emri Butonu Tıklama Olayı.
+        private void button_alisEmri_Click(object sender, EventArgs e)
+        {
+            Form_AlisEmri frm_alisEmri = new Form_AlisEmri(this.g_aktifKullanici);
+            frm_alisEmri.ShowDialog();
+            KullaniciBilgileriniYenile();
+            BakiyeYenile();
+        }
+        #endregion
+   
     }
 }

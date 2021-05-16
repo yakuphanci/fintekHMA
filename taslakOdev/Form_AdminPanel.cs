@@ -56,8 +56,9 @@ namespace taslakOdev
             {
                 PazardakiUrunOnayla(tiklananPazarID);
                 Mesajlar.Basarili();//Başarılı mesajı.
+                BekleyenPazarUrunleriListele();
             }
-            BekleyenPazarUrunleriListele();
+          
         }
 
         //Onay Bekleyen Urun Pazarını onayla.
@@ -157,7 +158,8 @@ namespace taslakOdev
             DateTime islemTarihi = islemNesnesi.islemTarihi;
             double miktar = islemNesnesi.degisiklikMiktari;
             string aciklama = islemNesnesi.aciklama;
-
+            string islemTalepEden = islemNesnesi.kullaniciAdi;
+            uint islemNum = islemNesnesi.ID;
 
             //Container
             Color BGColor = reddedildiMi ? Renkler.BGKirmizi : Renkler.BGVarsayilan;
@@ -170,6 +172,15 @@ namespace taslakOdev
 
             //İşlem Açıklama
             islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.Aciklama(aciklama));
+
+            //islemTalepEden
+            islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.TalepEden_Tittle());
+            islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.TalepEden_Value(islemTalepEden));
+
+            //islemTalepNum
+            islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.TalepNum_Tittle());
+            islemContainer.Controls.Add(GorselNesneOlustur.BakiyeIslem.TalepNum_Value(islemNum));
+
 
             //İşlem Miktar
             Color FRColor = (miktar < 0) ? Renkler.Kirmizi : Renkler.Yesil;

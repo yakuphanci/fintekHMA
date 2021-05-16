@@ -344,7 +344,7 @@ namespace taslakOdev
             this.ClientSize = new System.Drawing.Size(423, 551);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Kaydol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
