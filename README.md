@@ -67,13 +67,15 @@ para anlık olarak alıcının bakiyesinden düşer ve satıcılara aktarılır_
 **Youtube:** _https://www.youtube.com/watch?v=TCP_EYiEdEE_
 
 
-> **Eğitim Görevlisi**
+ **Eğitim Görevlisi**
+ 
 > _Dr. Emin BORANDAĞ_
 
-> **Geliştiriciler**
-> _**Alper ÜLGER** – 182805003 ######(İ.Ö.)_
-> _**Muratcan ŞEN** – 182805011 ######((İ.Ö.)_
-> _**Yakup Hamit HANCI** – 182805013 ######((İ.Ö.)_
+**Geliştiriciler**
+
+> _**Alper ÜLGER** – 182805003 (İ.Ö.)_
+> _**Muratcan ŞEN** – 182805011 (İ.Ö.)_
+> _**Yakup Hamit HANCI** – 182805013 (İ.Ö.)_
 
 
 
