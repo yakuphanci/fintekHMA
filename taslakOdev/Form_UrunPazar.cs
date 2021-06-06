@@ -158,6 +158,12 @@ namespace taslakOdev
             BakiyeYenile();
         }
         #endregion
-   
+
+        #region Ctrl + W kapatma kısayolu
+        private void pencereKapatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
     }
 }

@@ -1,0 +1,2 @@
+# taslakOdev
+ fintek_prototype

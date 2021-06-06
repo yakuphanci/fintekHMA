@@ -39,6 +39,7 @@ namespace taslakOdev
             this.hesapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guvenliCikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pencereKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_pazarlar = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel_pazarlar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_urun = new System.Windows.Forms.Panel();
@@ -135,7 +136,8 @@ namespace taslakOdev
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hesapToolStripMenuItem,
-            this.yenileToolStripMenuItem});
+            this.yenileToolStripMenuItem,
+            this.pencereKapatToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -171,6 +173,15 @@ namespace taslakOdev
             this.yenileToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
+            // 
+            // pencereKapatToolStripMenuItem
+            // 
+            this.pencereKapatToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.pencereKapatToolStripMenuItem.Name = "pencereKapatToolStripMenuItem";
+            this.pencereKapatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.pencereKapatToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.pencereKapatToolStripMenuItem.Text = "Pencere Kapat";
+            this.pencereKapatToolStripMenuItem.Click += new System.EventHandler(this.pencereKapatToolStripMenuItem_Click);
             // 
             // groupBox_pazarlar
             // 
@@ -372,5 +383,6 @@ namespace taslakOdev
         private System.Windows.Forms.Label label_miktarTittle;
         private System.Windows.Forms.Label label_urunAdi;
         private System.Windows.Forms.PictureBox pictureBox_urunResim;
+        private System.Windows.Forms.ToolStripMenuItem pencereKapatToolStripMenuItem;
     }
 }
